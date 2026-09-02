@@ -19,8 +19,13 @@
 
 /* ---------- typografie ---------- */
 
-/* Ook de paginatitel staat buiten .prose, daarom hier beide */
+/* De paginatitel staat buiten .prose, daarom staat h1 hier apart.
+   Op sectiepagina's zet Congo bovendien een eigen kleurklasse op die h1
+   (text-neutral-900). Een klasse weegt zwaarder dan een elementselector,
+   dus `main h1` alleen verliest daarvan. De variant met [class] weegt net
+   iets zwaarder en wint wel, zonder dat er !important aan te pas komt. */
 main h1,
+main h1[class],
 .prose h1,
 .prose h2,
 .prose h3,

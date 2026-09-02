@@ -3,6 +3,7 @@ languageCode = "nl-nl"
 defaultContentLanguage = "nl"
 title = "De Interim Ecoloog"
 theme = "congo"
+enableRobotsTXT = true
 
 # Congo levert zelf een Engelse taalconfiguratie mee; die zetten we uit,
 # anders bouwt Hugo de site twee keer (/en/ en /nl/).
@@ -34,6 +35,16 @@ disableLanguages = ["en"]
   defaultAppearance = "light"     # site start in lichte modus
   autoSwitchAppearance = false    # geen automatische donkere modus
   defaultThemeColor = "#FAF7EF"   # crème, kleurt de browserbalk op mobiel
+
+  # ------------------------------------------------------------------
+  # ZOEKMACHINES — de site is nog in aanbouw.
+  # Deze regel zet in elke pagina een noindex-instructie en laat
+  # layouts/robots.txt alle zoekmachines weren.
+  #
+  # LET OP: HAAL DEZE REGEL WEG VOORDAT DE SITE ECHT LIVE GAAT.
+  # Blijft hij staan, dan blijft de site onvindbaar in Google.
+  # ------------------------------------------------------------------
+  robots = "noindex, nofollow"
 
   description = "Voor al uw ecologische vraagstukken — quickscans, ecologisch onderzoek, ontheffingen en interim diensten."
 
@@ -68,4 +79,9 @@ disableLanguages = ["en"]
     weight = 4
 
 [outputs]
-  home = ["HTML"]
+  # "robots" moet hier expliciet bij staan: deze regel overschrijft de
+  # instelling van het thema, en zonder "robots" wordt layouts/robots.txt
+  # niet gegenereerd. Let op de schrijfwijze: in Hugo 0.160 heet dit
+  # uitvoerformaat "robots", niet "RobotsTXT" (dat is de oude naam en
+  # geeft een foutmelding bij het bouwen).
+  home = ["HTML", "robots"]

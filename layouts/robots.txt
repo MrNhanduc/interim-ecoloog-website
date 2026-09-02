@@ -1,0 +1,19 @@
+{{- /*
+  Deze robots.txt volgt de instelling `robots` in hugo.toml.
+
+  Staat daar "noindex, nofollow" (de stand tijdens het bouwen), dan worden
+  zoekmachines volledig geweerd. Haal je die regel uit hugo.toml weg, dan
+  schakelt dit bestand automatisch om naar normaal indexeren, inclusief de
+  verwijzing naar de sitemap. Zo kan de ene helft nooit aan staan terwijl
+  de andere uit staat.
+*/ -}}
+{{- if findRE "noindex" (site.Params.robots | default "") -}}
+# De site is nog in aanbouw en mag nog niet in zoekmachines verschijnen.
+User-agent: *
+Disallow: /
+{{- else -}}
+User-agent: *
+Allow: /
+
+Sitemap: {{ "sitemap.xml" | absURL }}
+{{- end -}}
