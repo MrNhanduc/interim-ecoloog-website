@@ -1,0 +1,11 @@
+{{- /*
+  Rooster voor korte punten naast elkaar. Op desktop twee kolommen,
+  op smalle schermen vallen ze onder elkaar.
+
+    {{< punten >}}
+    {{< punt titel="Kwaliteit" >}}Tekst...{{< /punt >}}
+    {{< /punten >}}
+*/ -}}
+<div class="punten">
+  {{ .Inner }}
+</div>

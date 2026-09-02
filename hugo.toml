@@ -1,0 +1,71 @@
+baseURL = "https://MrNhanduc.github.io/interim-ecoloog-website/"
+languageCode = "nl-nl"
+defaultContentLanguage = "nl"
+title = "De Interim Ecoloog"
+theme = "congo"
+
+# Congo levert zelf een Engelse taalconfiguratie mee; die zetten we uit,
+# anders bouwt Hugo de site twee keer (/en/ en /nl/).
+disableLanguages = ["en"]
+
+[languages]
+  [languages.nl]
+    locale = "nl-NL"
+    label = "Nederlands"
+    direction = "ltr"
+    weight = 1
+    title = "De Interim Ecoloog"
+    [languages.nl.params]
+      dateFormat = "2 January 2006"
+
+# Het contactformulier staat als HTML in content/contact/_index.md.
+# Zonder deze instelling gooit Hugo die HTML weg bij het renderen.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# ------------------------------------------------------------------
+# LET OP: pas baseURL hierboven aan naar jouw eigen domeinnaam
+# ------------------------------------------------------------------
+
+[params]
+  colorScheme = "custom"          # assets/css/schemes/custom.css
+  defaultAppearance = "light"     # site start in lichte modus
+  autoSwitchAppearance = false    # geen automatische donkere modus
+  defaultThemeColor = "#FAF7EF"   # crème, kleurt de browserbalk op mobiel
+
+  description = "Voor al uw ecologische vraagstukken — quickscans, ecologisch onderzoek, ontheffingen en interim diensten."
+
+  [params.header]
+    layout = "hybrid"       # hamburgermenu op mobiel, gewone balk op desktop
+    logo = "img/logo.png"         # staat in assets/img/
+    showTitle = false             # het logo bevat de naam al
+
+  [params.author]
+    name = "Pim Godschalk"
+
+  [params.footer]
+    showThemeAttribution = false
+    showAppearanceSwitcher = false
+
+[menu]
+  [[menu.main]]
+    name = "Werkvelden"
+    pageRef = "/werkvelden"
+    weight = 1
+  [[menu.main]]
+    name = "Interim diensten"
+    pageRef = "/interim-diensten"
+    weight = 2
+  [[menu.main]]
+    name = "Over"
+    pageRef = "/over"
+    weight = 3
+  [[menu.main]]
+    name = "Contact"
+    pageRef = "/contact"
+    weight = 4
+
+[outputs]
+  home = ["HTML"]

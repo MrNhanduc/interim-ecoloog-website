@@ -1,0 +1,5 @@
+{{- /* Eén punt binnen {{< punten >}}. Zie punten.html. */ -}}
+<div class="punt">
+  <h3 class="punt__titel">{{ .Get "titel" }}</h3>
+  <div class="punt__tekst">{{ .Inner | markdownify }}</div>
+</div>

@@ -1,0 +1,45 @@
+/* De Interim Ecoloog — kleurenschema afgeleid uit het logo
+   groen  #1D5129 / #4CA162 / #64BD78   |  accent donkerrood #A32B0D
+   achtergrond crème #FAF7EF, steunkleur zand (secondary)
+   Congo verwacht RGB-waarden zonder rgb() — nodig voor Tailwind-transparantie. */
+:root {
+  --color-neutral: 250, 247, 239; /* paginakleur: crème i.p.v. wit */
+  /* Warm zandgrijs — draagt de tekst en randen */
+  --color-neutral-50: 247, 243, 233;
+  --color-neutral-100: 240, 234, 219;
+  --color-neutral-200: 227, 218, 198;
+  --color-neutral-300: 207, 195, 169;
+  --color-neutral-400: 168, 156, 134;
+  --color-neutral-500: 133, 123, 105;
+  --color-neutral-600: 107, 97, 84;
+  --color-neutral-700: 84, 76, 66;
+  --color-neutral-800: 58, 52, 44;
+  --color-neutral-900: 36, 32, 27;
+  --color-neutral-950: 20, 18, 15;
+  /* Groen uit het logo */
+  --color-primary-50: 237, 247, 240;
+  --color-primary-100: 210, 237, 217;
+  --color-primary-200: 168, 220, 180;
+  --color-primary-300: 100, 189, 120;
+  --color-primary-400: 76, 161, 98;
+  --color-primary-500: 59, 139, 82;
+  --color-primary-600: 47, 115, 67;
+  --color-primary-700: 38, 90, 55;
+  --color-primary-800: 29, 81, 41;
+  --color-primary-900: 23, 63, 33;
+  --color-primary-950: 12, 37, 19;
+  /* Zand — steunkleur voor secties en accenten */
+  --color-secondary-50: 251, 246, 236;
+  --color-secondary-100: 245, 235, 216;
+  --color-secondary-200: 235, 220, 188;
+  --color-secondary-300: 223, 201, 155;
+  --color-secondary-400: 206, 175, 115;
+  --color-secondary-500: 188, 149, 83;
+  --color-secondary-600: 166, 124, 65;
+  --color-secondary-700: 134, 98, 55;
+  --color-secondary-800: 106, 78, 49;
+  --color-secondary-900: 86, 64, 42;
+  --color-secondary-950: 47, 34, 22;
+  /* Merkaccent uit het logo (stip op de i, oog van de vogel) */
+  --color-brand-red: 163, 43, 13;
+}

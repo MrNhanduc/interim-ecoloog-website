@@ -1,0 +1,40 @@
+{{- /*
+  Zandband met golvende overgangen.
+
+  Gebruik in de content:
+
+    {{< zandband >}}
+    ## Kop van de sectie
+    Tekst...
+    {{< /zandband >}}
+
+  De golven zijn SVG-paden, geen afbeeldingen: ze schalen mee met elke
+  schermbreedte en kosten niets aan laadtijd. De band loopt over de volle
+  breedte van het scherm, de tekst erin blijft in dezelfde kolom staan als
+  de rest van de pagina.
+*/ -}}
+<div class="zandband">
+  <svg
+    class="zandband__golf zandband__golf--boven"
+    viewBox="0 0 1440 90"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false">
+    <path d="M0,58 C200,14 380,10 620,38 C860,66 1080,78 1260,56 C1330,47 1390,36 1440,24 L1440,90 L0,90 Z" />
+  </svg>
+
+  <div class="zandband__inhoud">
+    <div class="zandband__wrap">
+      {{ .Inner | markdownify }}
+    </div>
+  </div>
+
+  <svg
+    class="zandband__golf zandband__golf--onder"
+    viewBox="0 0 1440 90"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+    focusable="false">
+    <path d="M0,42 C180,74 400,84 660,58 C920,32 1120,20 1300,34 C1350,38 1400,46 1440,54 L1440,0 L0,0 Z" />
+  </svg>
+</div>
