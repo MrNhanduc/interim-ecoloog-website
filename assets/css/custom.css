@@ -256,3 +256,37 @@ body {
   margin-top: 0;
   margin-bottom: 0;
 }
+
+/* ---------- melding na het versturen van het contactformulier ---------- */
+
+.form-melding {
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  border-inline-start: 5px solid;
+}
+
+/* Zichtbare focusrand: de melding krijgt na het versturen de aandacht,
+   zodat schermlezers hem voorlezen en toetsenbordgebruikers weten waar
+   ze gebleven zijn. */
+.form-melding:focus-visible {
+  outline: 2px solid var(--groen);
+  outline-offset: 3px;
+}
+
+.form-melding strong {
+  font-size: 1.1rem;
+}
+
+.form-melding--goed {
+  background: rgb(var(--color-primary-100));
+  border-color: var(--groen);
+  color: rgb(var(--color-primary-900));
+}
+
+.form-melding--fout {
+  background: var(--zand-licht);
+  border-color: var(--rood);
+  color: rgb(var(--color-neutral-900));
+}
