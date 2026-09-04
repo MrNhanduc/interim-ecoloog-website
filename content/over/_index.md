@@ -1,5 +1,8 @@
 ---
 layout: "simple"
+# Tijdelijk dezelfde foto als de homepage, zodat je ziet hoe het oogt.
+kopfoto: "img/kop-graspieper.jpg"
+kopfoto_alt: "Graspieper op een weidepaaltje"
 kopregel: "Wie er achter De Interim Ecoloog zit."
 title: "Over mij"
 description: "Wie is De Interim Ecoloog"

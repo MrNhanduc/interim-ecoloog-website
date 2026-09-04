@@ -45,6 +45,8 @@ Stikstofberekeningen met AERIUS, en inventarisaties van Japanse duizendknoop, Re
 {{< /kaart >}}
 {{< /kaarten >}}
 
+{{< cijfers >}}
+
 {{< zandband >}}
 
 ## Wat De Interim Ecoloog uniek maakt

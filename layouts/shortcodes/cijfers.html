@@ -1,0 +1,19 @@
+{{- /*
+  Balk met kerncijfers. De getallen staan in de front matter van de
+  pagina onder `cijfers:` (getal + label per regel); deze shortcode
+  bepaalt alleen WAAR de balk komt te staan:
+
+      {{< cijfers >}}
+
+  Zo kun je hem verplaatsen zonder een template aan te raken.
+*/ -}}
+{{ with .Page.Params.cijfers }}
+  <section class="cijfers" aria-label="De Interim Ecoloog in cijfers">
+    {{ range . }}
+      <div class="cijfer">
+        <span class="cijfer__getal">{{ .getal }}</span>
+        <span class="cijfer__label">{{ .label }}</span>
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

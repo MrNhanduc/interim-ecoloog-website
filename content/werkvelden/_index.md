@@ -1,5 +1,8 @@
 ---
 layout: "simple"
+# Tijdelijk dezelfde foto als de homepage, zodat je ziet hoe het oogt.
+kopfoto: "img/kop-graspieper.jpg"
+kopfoto_alt: "Graspieper op een weidepaaltje"
 kopregel: "Van quickscan tot nader onderzoek naar beschermde soorten."
 title: "Werkvelden"
 description: "Alle ecologische diensten van De Interim Ecoloog op een rij"

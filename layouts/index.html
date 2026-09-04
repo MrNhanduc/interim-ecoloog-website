@@ -42,20 +42,20 @@
           {{ end }}
         </div>
       </div>
+
+      {{/* Golf in de paginakleur, net als op de andere pagina's */}}
+      <svg class="held__golf" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path d="M0,58 C200,14 380,10 620,38 C860,66 1080,78 1260,56 C1330,47 1390,36 1440,24 L1440,90 L0,90 Z" />
+      </svg>
     </section>
   {{ end }}
 
-  {{/* ---------------- CIJFERBALK ---------------- */}}
-  {{ with .Params.cijfers }}
-    <section class="cijfers" aria-label="De Interim Ecoloog in cijfers">
-      {{ range . }}
-        <div class="cijfer">
-          <span class="cijfer__getal">{{ .getal }}</span>
-          <span class="cijfer__label">{{ .label }}</span>
-        </div>
-      {{ end }}
-    </section>
-  {{ end }}
+  {{/* De cijferbalk staat NIET meer vast op deze plek: hij is een
+       shortcode geworden die je in content/_index.md neerzet waar je hem
+       wilt hebben. De getallen zelf blijven in de front matter staan.
+       Let op: schrijf in zo'n toelichting nooit de shortcode zelf uit -
+       de sterretjes erin sluiten dit commentaar voortijdig af en dan
+       weigert Hugo de hele pagina te bouwen. */}}
 
   {{/* ---------------- INHOUD ---------------- */}}
   <section class="prose max-w-full dark:prose-invert">

@@ -368,7 +368,7 @@ body {
      logo door: het blok wordt van onderaf uitgelijnd en loopt dan over de
      bovenmarge heen. Op deze plek duwt de padding de tekst altijd onder
      het menu, en groeit de foto mee als de tekst niet past. */
-  padding: calc(var(--menu-hoogte) + 0.75rem) 1.5rem 3.25rem;
+  padding: calc(var(--menu-hoogte) + 0.75rem) 1.5rem calc(3.25rem + clamp(30px, 4.5vw, 64px));
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
@@ -411,6 +411,19 @@ body {
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.35rem;
+}
+
+/* Golf onderaan de heldfoto, in de paginakleur - dezelfde vorm als op de
+   andere pagina's. De hoogte staat hieronder ook in de ondermarge van
+   .held__inhoud, anders loopt de golf over de knoppen heen. */
+.held__golf {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  display: block;
+  width: 100%;
+  height: clamp(30px, 4.5vw, 64px);
+  fill: rgb(var(--color-neutral));
 }
 
 .knop {
@@ -551,6 +564,17 @@ body > header > nav,
   padding-bottom: 6rem;
 }
 
+/* Op smalle schermen loopt de tekst over de volle breedte, dus ook over
+   de lichtste delen van de foto. Zonder deze zwaardere sluier haalt de
+   kopregel het contrast niet (gemeten: 3,8:1 op de graspieperfoto). */
+@media (max-width: 767px) {
+  .paginakop__sluier {
+    background:
+      linear-gradient(100deg, rgba(12, 37, 19, 0.9) 0%, rgba(12, 37, 19, 0.82) 50%, rgba(12, 37, 19, 0.68) 100%),
+      linear-gradient(to bottom, rgba(12, 37, 19, 0.4) 0%, rgba(12, 37, 19, 0.15) 40%);
+  }
+}
+
 .paginakop__inhoud {
   position: relative;
   width: 100%;
@@ -600,7 +624,6 @@ body > header > nav,
   border: 1px solid var(--rand);
   border-radius: 20px;
   padding: 1.75rem 1.5rem;
-  margin-top: 2.25rem;
 }
 
 @media (min-width: 640px) {
@@ -639,10 +662,9 @@ body > header > nav,
   margin-bottom: 2.5rem;
 }
 
-/* Lucht tussen de cijferbalk en de eerste kop eronder */
-.cijfers + .prose > :first-child,
-.cijfers + section > :first-child {
-  margin-top: 2.5rem;
+/* De balk staat nu tussen de tekst in, dus lucht aan beide kanten */
+.cijfers {
+  margin-block: 2.75rem;
 }
 
 @media (min-width: 900px) {

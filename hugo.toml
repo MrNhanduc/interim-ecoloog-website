@@ -53,6 +53,12 @@ disableLanguages = ["en"]
     logo = "img/logo.png"         # staat in assets/img/
     showTitle = false             # het logo bevat de naam al
 
+  [params.article]
+    # Zet het hekje uit dat bij het zweven over een kop verschijnt. De
+    # koppen houden hun id, dus rechtstreeks naar een kop linken
+    # (bijvoorbeeld /werkvelden/#quickscan) blijft gewoon werken.
+    showHeadingAnchors = false
+
   [params.author]
     name = "Pim Godschalk"
 
