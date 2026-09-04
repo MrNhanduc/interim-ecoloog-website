@@ -1,0 +1,37 @@
+{{- /*
+  Kopband boven aan elke pagina behalve de homepage.
+
+  Met een foto: zet in de front matter van de pagina
+      kopfoto: "img/bestandsnaam.jpg"
+      kopfoto_alt: "Beschrijving van de foto"
+  Zonder foto valt de band terug op effen donkergroen, zodat een pagina
+  nooit stuk gaat omdat het beeld nog ontbreekt.
+
+  De menubalk ligt over deze band heen en is daarom overal wit; dat is
+  de reden dat elke pagina een donkere band krijgt.
+*/ -}}
+{{ $foto := "" }}
+{{ with .Params.kopfoto }}{{ $foto = resources.Get . }}{{ end }}
+
+<section class="paginakop{{ if $foto }} paginakop--foto{{ end }}">
+  {{ with $foto }}
+    {{ $klein := .Resize "900x q78 webp" }}
+    {{ $groot := .Resize "1800x q78 webp" }}
+    <picture>
+      <source type="image/webp" srcset="{{ $klein.RelPermalink }} 900w, {{ $groot.RelPermalink }} 1800w" sizes="100vw">
+      <img class="paginakop__foto" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+           alt="{{ $.Params.kopfoto_alt | default "" }}" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="paginakop__sluier" aria-hidden="true"></div>
+  {{ end }}
+
+  <div class="paginakop__inhoud">
+    <h1 class="paginakop__titel">{{ .Title | emojify }}</h1>
+    {{ with .Params.kopregel }}<p class="paginakop__regel">{{ . }}</p>{{ end }}
+  </div>
+
+  {{/* Golf in de paginakleur, zodat de band overloopt in de inhoud */}}
+  <svg class="paginakop__golf" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0,58 C200,14 380,10 620,38 C860,66 1080,78 1260,56 C1330,47 1390,36 1440,24 L1440,90 L0,90 Z" />
+  </svg>
+</section>

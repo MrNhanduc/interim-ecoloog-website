@@ -1,0 +1,6 @@
+{{ define "main" }}
+  {{ partial "paginakop.html" . }}
+  <section class="prose max-w-full dark:prose-invert">
+    {{ .Content | emojify }}
+  </section>
+{{ end }}

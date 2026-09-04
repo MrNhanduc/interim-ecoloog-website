@@ -299,7 +299,7 @@ body {
    in --menu-hoogte; wijkt het logo van formaat af, pas hem dan hier aan
    en niet ergens anders. */
 :root {
-  --menu-hoogte: 148px;
+  --menu-hoogte: 168px;
 }
 
 .held {
@@ -444,54 +444,150 @@ body {
   color: #fff;
 }
 
-/* Menubalk transparant en over de foto — alleen op de homepage.
-   :has() kijkt of de pagina een heldfoto bevat, zodat de andere
-   pagina's hun gewone menubalk houden. */
-body:has(.held) {
-  position: relative;
-}
+/* ---------- menubalk: over de kopband, altijd zichtbaar ---------- */
 
-body:has(.held) > header {
-  position: absolute;
+/* Elke pagina begint met een donkere band (heldfoto of paginakop), dus de
+   menubalk is overal wit en ligt er overheen. position: fixed houdt hem in
+   beeld bij het scrollen; hij neemt daardoor geen ruimte in, en de ruimte
+   voor het menu zit in de band zelf (--menu-hoogte). */
+body > header {
+  position: fixed;
   inset-inline: 0;
   top: 0;
-  z-index: 20;
-  padding-inline: 1.5rem;
+  z-index: 40;
+  color: #fff;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Zelfde doos als de rest van de site (max-w-7xl, gecentreerd, met
+   dezelfde zijmarges), anders staat het logo niet op één lijn met de
+   tekst eronder. */
+body > header > nav {
+  max-width: 80rem;
+  margin-inline: auto;
+  width: 100%;
+}
+
+body > header a {
   color: #fff;
 }
 
-body:has(.held) > header a {
-  color: #fff;
-}
-
-body:has(.held) > header img {
+/* De [class] is nodig: het thema zet `max-h-[10rem]` als klasse op deze
+   img, en een klasse weegt zwaarder dan een gewone elementselector.
+   Zonder die haakjes blijft het logo 160px hoog en loopt de paginatitel
+   eronder door. Wijzig je deze hoogte, pas dan --menu-hoogte mee aan:
+   die twee horen bij elkaar (40px lucht boven + logo + 40px eronder). */
+body > header img,
+body > header img[class] {
   filter: brightness(0) invert(1);
-  /* Kleiner dan het thema standaard doet (10rem): op de foto oogt een
-     kleiner logo rustiger, en de heldtekst houdt ruimte. Wijzig je dit,
-     pas dan ook --menu-hoogte hierboven aan. */
-  max-height: 5.5rem;
+  max-height: 5rem;
+}
+
+/* Zodra je voorbij de band scrollt krijgt de balk een eigen ondergrond,
+   anders zweeft witte tekst over crème. De klas wordt gezet door het
+   scriptje in layouts/_partials/extend-footer.html. */
+body > header.is-geplakt {
+  background: rgba(23, 63, 33, 0.94);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 1px 12px rgba(12, 37, 19, 0.18);
+}
+
+body > header > nav,
+.held__inhoud,
+.paginakop__inhoud {
+  padding-inline: 1.5rem;
 }
 
 @media (min-width: 640px) {
-  body:has(.held) > header { padding-inline: 3.5rem; }
-  .held__inhoud { padding-inline: 3.5rem; }
+  body > header > nav, .held__inhoud, .paginakop__inhoud { padding-inline: 3.5rem; }
 }
 
 @media (min-width: 768px) {
-  body:has(.held) > header { padding-inline: 6rem; }
-  .held__inhoud { padding-inline: 6rem; }
+  body > header > nav, .held__inhoud, .paginakop__inhoud { padding-inline: 6rem; }
 }
 
 @media (min-width: 1024px) {
-  body:has(.held) > header { padding-inline: 8rem; }
-  .held__inhoud { padding-inline: 8rem; }
+  body > header > nav, .held__inhoud, .paginakop__inhoud { padding-inline: 8rem; }
 }
 
-/* Op smalle schermen is de menubalk lager en mag de foto minder hoog */
 @media (max-width: 639px) {
-  :root { --menu-hoogte: 124px; }
+  :root { --menu-hoogte: 120px; }
   .held { min-height: 62vh; }
-  body:has(.held) > header img { max-height: 5rem; }
+  body > header img, body > header img[class] { max-height: 4rem; }
+}
+
+/* ---------- kopband op de andere pagina's ---------- */
+
+.paginakop {
+  position: relative;
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+  overflow: hidden;
+  background: rgb(var(--color-primary-800));
+  margin-bottom: 1.5rem;
+}
+
+.paginakop__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* Zonder verdonkering haalt witte tekst op een foto het contrast niet. */
+.paginakop__sluier {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(12, 37, 19, 0.84) 0%, rgba(12, 37, 19, 0.68) 42%, rgba(12, 37, 19, 0.3) 78%, rgba(12, 37, 19, 0.22) 100%),
+    linear-gradient(to bottom, rgba(12, 37, 19, 0.45) 0%, rgba(12, 37, 19, 0.1) 40%);
+}
+
+/* Met foto mag de band wat dieper, anders blijft er van de uitsnede
+   te weinig over om iets van te zien. */
+.paginakop--foto .paginakop__inhoud {
+  padding-bottom: 6rem;
+}
+
+.paginakop__inhoud {
+  position: relative;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  /* Ruimte voor de menubalk hoort hier, net als bij de heldfoto. */
+  padding-block: calc(var(--menu-hoogte) + 0.5rem) 4.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Twee klassen diep, anders wint de algemene h1-regel bovenin dit bestand
+   en wordt de titel donkergroen op een donkere band. */
+.paginakop .paginakop__titel {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.paginakop__regel {
+  margin: 0;
+  color: rgba(250, 247, 239, 0.9);
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  max-width: 40rem;
+}
+
+.paginakop__golf {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  display: block;
+  width: 100%;
+  height: clamp(30px, 4.5vw, 64px);
+  fill: rgb(var(--color-neutral));
 }
 
 /* ---------- cijferbalk ---------- */

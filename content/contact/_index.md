@@ -1,11 +1,12 @@
 ---
 layout: "simple"
+kopregel: "Bel, mail of gebruik het formulier - u krijgt zo snel mogelijk een reactie."
 title: "Contact"
 description: "Neem contact op met De Interim Ecoloog"
+kopfoto: "img/kop-patrijs.jpg"
+kopfoto_alt: "Patrijs in ruige vegetatie"
 weight: 4
 ---
-
-{{< fotoband src="img/band-patrijs.jpg" alt="Patrijs in ruige vegetatie" >}}
 
 Wilt u een offerte aanvragen of heeft u een andere vraag? Neem dan contact op via onderstaand contactformulier, bel / app 06 26 810 089, of stuur een mail naar [info@deinterimecoloog.nl](mailto:info@deinterimecoloog.nl). U krijgt zo snel mogelijk een reactie.
 
