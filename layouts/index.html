@@ -1,4 +1,10 @@
 {{ define "main" }}
+  {{/* LET OP bij de knoppen hieronder: relURL plakt de submap van de site
+       er alleen voor als het pad GEEN schuine streep vooraan heeft.
+       "/contact/" | relURL geeft /contact/ en dat is op
+       gebruikersnaam.github.io/repo/ een dode link; "contact/" | relURL
+       geeft wel /repo/contact/. Daarom halen we de streep er eerst af,
+       zodat het in de front matter gewoon als /contact/ mag staan. */}}
   {{/* ---------------- HELDFOTO ---------------- */}}
   {{ with .Params.hero }}
     {{ $img := resources.Get .afbeelding }}
@@ -28,9 +34,9 @@
         <h1 class="held__kop">{{ .kop }}</h1>
         {{ with .tekst }}<p class="held__tekst">{{ . }}</p>{{ end }}
         <div class="held__knoppen">
-          {{ with .knop1 }}<a class="knop knop--vol" href="{{ .link | relURL }}">{{ .tekst }}</a>{{ end }}
+          {{ with .knop1 }}<a class="knop knop--vol" href="{{ strings.TrimPrefix "/" .link | relURL }}">{{ .tekst }}</a>{{ end }}
           {{ with .knop2 }}
-            <a class="knop knop--lijn" href="{{ .link | relURL }}">{{ .tekst }}
+            <a class="knop knop--lijn" href="{{ strings.TrimPrefix "/" .link | relURL }}">{{ .tekst }}
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           {{ end }}
