@@ -1,0 +1,58 @@
+{{ define "main" }}
+  {{/* ---------------- HELDFOTO ---------------- */}}
+  {{ with .Params.hero }}
+    {{ $img := resources.Get .afbeelding }}
+    <section class="held">
+      {{ with $img }}
+        {{ $klein  := .Resize "900x q78 webp" }}
+        {{ $midden := .Resize "1600x q78 webp" }}
+        {{ $groot  := .Resize "2400x q78 webp" }}
+        <picture>
+          <source
+            type="image/webp"
+            srcset="{{ $klein.RelPermalink }} 900w, {{ $midden.RelPermalink }} 1600w, {{ $groot.RelPermalink }} 2400w"
+            sizes="100vw">
+          <img class="held__foto" src="{{ .RelPermalink }}"
+               width="{{ .Width }}" height="{{ .Height }}"
+               alt="{{ $.Params.hero.alt }}" fetchpriority="high" decoding="async">
+        </picture>
+      {{ end }}
+
+      {{/* Donkere sluier links: zonder deze laag haalt witte tekst op deze
+           foto maar 4,5:1 contrast, en dat is te krap. Rechts blijft de
+           sluier bijna doorzichtig zodat de vogel scherp in beeld blijft. */}}
+      <div class="held__sluier" aria-hidden="true"></div>
+
+      <div class="held__inhoud">
+        {{ with .label }}<span class="held__label">{{ . }}</span>{{ end }}
+        <h1 class="held__kop">{{ .kop }}</h1>
+        {{ with .tekst }}<p class="held__tekst">{{ . }}</p>{{ end }}
+        <div class="held__knoppen">
+          {{ with .knop1 }}<a class="knop knop--vol" href="{{ .link | relURL }}">{{ .tekst }}</a>{{ end }}
+          {{ with .knop2 }}
+            <a class="knop knop--lijn" href="{{ .link | relURL }}">{{ .tekst }}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- CIJFERBALK ---------------- */}}
+  {{ with .Params.cijfers }}
+    <section class="cijfers" aria-label="De Interim Ecoloog in cijfers">
+      {{ range . }}
+        <div class="cijfer">
+          <span class="cijfer__getal">{{ .getal }}</span>
+          <span class="cijfer__label">{{ .label }}</span>
+        </div>
+      {{ end }}
+    </section>
+  {{ end }}
+
+  {{/* ---------------- INHOUD ---------------- */}}
+  <section class="prose max-w-full dark:prose-invert">
+    {{ .Content }}
+  </section>
+{{ end }}

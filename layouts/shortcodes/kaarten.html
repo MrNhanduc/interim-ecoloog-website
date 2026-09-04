@@ -1,0 +1,11 @@
+{{- /*
+  Rij met dienstenkaarten. Op desktop drie naast elkaar, daaronder
+  onder elkaar. Gebruik met de shortcode `kaart`:
+
+    {{< kaarten >}}
+    {{< kaart titel="Quickscan" >}}Tekst...{{< /kaart >}}
+    {{< /kaarten >}}
+*/ -}}
+<div class="kaarten">
+  {{ .Inner }}
+</div>

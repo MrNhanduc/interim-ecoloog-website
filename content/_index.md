@@ -1,6 +1,28 @@
 ---
 title: "Voor al uw ecologische vraagstukken"
-description: "Voor al uw ecologische vraagstukken"
+description: "Quickscans, nader ecologisch onderzoek, ecologische begeleiding en stikstofberekeningen. Landelijk werkzaam, met een voorkeur voor midden en oost Nederland."
+
+hero:
+  afbeelding: "img/hero-graspieper.jpg"
+  alt: "Graspieper op een weidepaaltje"
+  label: "Ecologisch onderzoek en advies"
+  kop: "Voor al uw ecologische vraagstukken"
+  tekst: "Quickscans, nader onderzoek, ecologische begeleiding en stikstofberekeningen — landelijk, met een voorkeur voor midden en oost Nederland."
+  knop1:
+    tekst: "Neem contact op"
+    link: "/contact/"
+  knop2:
+    tekst: "Bekijk mijn werkvelden"
+    link: "/werkvelden/"
+
+# Pas deze getallen aan wanneer ze veranderen; de balk past zich vanzelf aan.
+cijfers:
+  - getal: "30+"
+    label: "opdrachtgevers"
+  - getal: "100+"
+    label: "uitgevoerde projecten"
+  - getal: "15"
+    label: "jaar werkervaring"
 ---
 
 De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een stikstofberekening met behulp van AERIUS. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
@@ -9,7 +31,19 @@ De Interim Ecoloog werkt landelijk maar met een voorkeur voor het midden en oost
 
 Heeft u interesse in deze diensten of een andere ecologische vraag? Neem dan contact op.
 
-{{< button href="contact" >}}Contact{{< /button >}}
+## Wat ik voor u kan doen
+
+{{< kaarten >}}
+{{< kaart titel="Quickscan en nader onderzoek" >}}
+Een heldere beoordeling van beschermde soorten op uw locatie, en gericht vervolgonderzoek waar dat nodig blijkt.
+{{< /kaart >}}
+{{< kaart titel="Begeleiding en ontheffingen" >}}
+Ecologische begeleiding van uw werkzaamheden en de aanvraag van ontheffingen, zodat het werk door kan gaan binnen de regels.
+{{< /kaart >}}
+{{< kaart titel="Stikstof en invasieve exoten" >}}
+Stikstofberekeningen met AERIUS, en inventarisaties van Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
+{{< /kaart >}}
+{{< /kaarten >}}
 
 {{< zandband >}}
 
@@ -17,7 +51,7 @@ Heeft u interesse in deze diensten of een andere ecologische vraag? Neem dan con
 
 {{< punten >}}
 {{< punt titel="Kwaliteit" >}}
-Het leveren van kwaliteit is één van de kernwaarden van De Interim Ecoloog. Met twaalf jaar werkervaring in veldwerk, rapportage en projectleiding is er weinig wat ik niet gezien heb.
+Het leveren van kwaliteit is één van de kernwaarden van De Interim Ecoloog. Met vijftien jaar werkervaring in veldwerk, rapportage en projectleiding is er weinig wat ik niet gezien heb.
 {{< /punt >}}
 {{< punt titel="Veelzijdigheid" >}}
 Ik heb voor een milieuadviesbureau gewerkt, maar heb via detacheringen ook de 'andere kant' ervaren, vanuit een gemeente of Omgevingsdienst (WABO-vergunningen en bestemmingsplannen). Daardoor heb ik een brede blik en dat vertaalt zich in completere adviezen in de rapportages.

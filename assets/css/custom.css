@@ -290,3 +290,303 @@ body {
   border-color: var(--rood);
   color: rgb(var(--color-neutral-900));
 }
+
+/* ============ HOMEPAGE: heldfoto, cijferbalk, dienstenkaarten ============ */
+
+/* De heldfoto loopt over de volle schermbreedte en schuift onder de
+   menubalk door. De menubalk zelf wordt daarom transparant gemaakt en
+   over de foto gelegd (zie verderop). De hoogte van die balk staat vast
+   in --menu-hoogte; wijkt het logo van formaat af, pas hem dan hier aan
+   en niet ergens anders. */
+:root {
+  --menu-hoogte: 148px;
+}
+
+.held {
+  position: relative;
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+  min-height: min(84vh, 780px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  /* Geen negatieve bovenmarge: de menubalk staat op deze pagina absoluut
+     gepositioneerd en neemt dus geen ruimte in, waardoor de foto al
+     bovenaan begint. Trek je hem alsnog omhoog, dan schuift de tekst
+     onder het logo. De ruimte voor het menu zit in .held__inhoud. */
+  background: rgb(var(--color-primary-900));
+}
+
+.held__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 50%;
+}
+
+/* Op smalle schermen de uitsnede naar rechts schuiven, zodat de tekst
+   op het rustige groen valt in plaats van op de vogel zelf. */
+@media (max-width: 767px) {
+  .held__foto { object-position: 82% 50%; }
+}
+
+/* Zonder deze sluier haalt witte tekst op deze foto maar 4,5:1 contrast.
+   Links donker voor de tekst, rechts vrijwel doorzichtig voor de vogel. */
+.held__sluier {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(12, 37, 19, 0.88) 0%, rgba(12, 37, 19, 0.78) 44%, rgba(12, 37, 19, 0.46) 74%, rgba(12, 37, 19, 0.18) 100%),
+    linear-gradient(to bottom, rgba(12, 37, 19, 0.45) 0%, rgba(12, 37, 19, 0) 34%);
+}
+
+/* Op smalle schermen loopt de tekst over de hele breedte, dus ook over
+   de vogel heen. Daar is een extra egale verdonkering nodig om wit
+   leesbaar te houden. */
+@media (max-width: 767px) {
+  .held__sluier {
+    background:
+      linear-gradient(100deg, rgba(12, 37, 19, 0.9) 0%, rgba(12, 37, 19, 0.82) 50%, rgba(12, 37, 19, 0.66) 100%),
+      linear-gradient(to bottom, rgba(12, 37, 19, 0.4) 0%, rgba(12, 37, 19, 0) 30%);
+  }
+}
+
+/* Zelfde kolombreedte en zijmarges als de rest van de pagina, anders
+   springt de heldtekst zichtbaar in of uit ten opzichte van de tekst
+   eronder. De regelbreedte wordt geregeld op de kop en de alinea zelf,
+   niet op deze doos - anders passen de twee knoppen niet meer naast
+   elkaar. */
+.held__inhoud {
+  position: relative;
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  /* De ruimte voor de menubalk zit HIER en niet op .held zelf. Staat hij
+     op .held, dan schuift de tekst bij een lager scherm alsnog onder het
+     logo door: het blok wordt van onderaf uitgelijnd en loopt dan over de
+     bovenmarge heen. Op deze plek duwt de padding de tekst altijd onder
+     het menu, en groeit de foto mee als de tekst niet past. */
+  padding: calc(var(--menu-hoogte) + 0.75rem) 1.5rem 3.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.held__label {
+  align-self: flex-start;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(250, 247, 239, 0.16);
+  color: rgb(var(--color-secondary-200));
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Twee klassen diep, anders wint de algemene h1-regel hierboven
+   (main h1[class]) en wordt de kop donkergroen op een donkere foto. */
+.held .held__kop {
+  margin: 0;
+  max-width: 22ch;
+  color: #fff;
+  font-size: clamp(2.1rem, 5vw, 3.7rem);
+  line-height: 1.06;
+  font-weight: 700;
+  text-wrap: pretty;
+}
+
+.held__tekst {
+  margin: 0;
+  color: rgba(250, 247, 239, 0.92);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.55;
+  max-width: 32rem;
+}
+
+.held__knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.knop {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.knop--vol {
+  background: var(--groen);
+  color: #fff;
+}
+
+.knop--vol:hover {
+  background: var(--groen-donker);
+  color: #fff;
+}
+
+.knop--lijn {
+  border: 1.5px solid rgba(250, 247, 239, 0.6);
+  color: rgb(var(--color-neutral));
+}
+
+.knop--lijn:hover {
+  background: rgba(250, 247, 239, 0.14);
+  color: #fff;
+}
+
+/* Menubalk transparant en over de foto — alleen op de homepage.
+   :has() kijkt of de pagina een heldfoto bevat, zodat de andere
+   pagina's hun gewone menubalk houden. */
+body:has(.held) {
+  position: relative;
+}
+
+body:has(.held) > header {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 20;
+  padding-inline: 1.5rem;
+  color: #fff;
+}
+
+body:has(.held) > header a {
+  color: #fff;
+}
+
+body:has(.held) > header img {
+  filter: brightness(0) invert(1);
+  /* Kleiner dan het thema standaard doet (10rem): op de foto oogt een
+     kleiner logo rustiger, en de heldtekst houdt ruimte. Wijzig je dit,
+     pas dan ook --menu-hoogte hierboven aan. */
+  max-height: 5.5rem;
+}
+
+@media (min-width: 640px) {
+  body:has(.held) > header { padding-inline: 3.5rem; }
+  .held__inhoud { padding-inline: 3.5rem; }
+}
+
+@media (min-width: 768px) {
+  body:has(.held) > header { padding-inline: 6rem; }
+  .held__inhoud { padding-inline: 6rem; }
+}
+
+@media (min-width: 1024px) {
+  body:has(.held) > header { padding-inline: 8rem; }
+  .held__inhoud { padding-inline: 8rem; }
+}
+
+/* Op smalle schermen is de menubalk lager en mag de foto minder hoog */
+@media (max-width: 639px) {
+  :root { --menu-hoogte: 124px; }
+  .held { min-height: 62vh; }
+  body:has(.held) > header img { max-height: 5rem; }
+}
+
+/* ---------- cijferbalk ---------- */
+
+.cijfers {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  margin-top: 2.25rem;
+}
+
+@media (min-width: 640px) {
+  .cijfers {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 2rem 2.5rem;
+  }
+}
+
+.cijfer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.cijfer__getal {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--groen-donker);
+  line-height: 1;
+}
+
+.cijfer__label {
+  color: rgb(var(--color-neutral-600));
+  font-size: 0.95rem;
+}
+
+/* ---------- dienstenkaarten ---------- */
+
+.kaarten {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Lucht tussen de cijferbalk en de eerste kop eronder */
+.cijfers + .prose > :first-child,
+.cijfers + section > :first-child {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .kaarten { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.kaart {
+  background: #fff;
+  border: 1px solid var(--rand);
+  border-radius: 18px;
+  padding: 1.6rem;
+}
+
+.kaart > .kaart__titel {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--groen-donker);
+}
+
+.kaart__tekst,
+.kaart__tekst > p {
+  margin: 0;
+  color: rgb(var(--color-neutral-700));
+}
+
+/* ---------- paginabrede fotoband ---------- */
+
+.fotoband {
+  margin-inline: calc(50% - 50vw);
+  width: 100vw;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.fotoband img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 46vh;
+  object-fit: cover;
+  border-radius: 0;
+}

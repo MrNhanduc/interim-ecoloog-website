@@ -1,0 +1,5 @@
+{{- /* Eén dienstenkaart binnen {{< kaarten >}}. Zie kaarten.html. */ -}}
+<div class="kaart">
+  <h3 class="kaart__titel">{{ .Get "titel" }}</h3>
+  <div class="kaart__tekst">{{ .Inner | markdownify }}</div>
+</div>

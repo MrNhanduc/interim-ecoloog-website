@@ -1,0 +1,18 @@
+{{- /*
+  Paginabrede fotoband. Snijdt de foto op de opgegeven verhouding en
+  levert een webp-variant mee, zodat de pagina licht blijft.
+
+    {{< fotoband src="img/band-patrijs.jpg" alt="Patrijs in ruige vegetatie" >}}
+*/ -}}
+{{ $img := resources.Get (.Get "src") }}
+{{ if $img }}
+  {{ $klein  := $img.Resize "900x q78 webp" }}
+  {{ $midden := $img.Resize "1600x q78 webp" }}
+  <figure class="fotoband">
+    <picture>
+      <source type="image/webp" srcset="{{ $klein.RelPermalink }} 900w, {{ $midden.RelPermalink }} 1600w" sizes="100vw">
+      <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}"
+           alt="{{ .Get "alt" }}" loading="lazy" decoding="async">
+    </picture>
+  </figure>
+{{ end }}
