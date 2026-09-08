@@ -17,6 +17,34 @@
   --rood: rgb(var(--color-brand-red));
 }
 
+/* ---------- lettertypen ---------- */
+
+/* De @font-face-regels staan in layouts/_partials/extend-head.html: daar vult
+   Hugo de bestandsnamen in, zodat ze ook op een submap-URL kloppen. Hier staat
+   alleen wie welk lettertype krijgt. */
+:root {
+  --font-tekst: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-kop: "Poppins", var(--font-tekst);
+}
+
+/* Het thema zet het systeemlettertype op <html>; een regel op body wint
+   daarvan en erft door naar alles wat eronder staat. */
+body {
+  font-family: var(--font-tekst);
+  font-optical-sizing: auto;
+}
+
+/* Koppen in Poppins, de geometrische letter die bij het logo hoort. De iets
+   krappere letterafstand houdt de ronde vormen bij grote maten bij elkaar.
+   De losse regels erbij zijn koppen die geen h-element zijn. */
+h1, h2, h3, h4, h5, h6,
+.held .held__kop,
+.paginakop .paginakop__titel,
+.cijfer__getal {
+  font-family: var(--font-kop);
+  letter-spacing: -0.015em;
+}
+
 /* ---------- typografie ---------- */
 
 /* De paginatitel staat buiten .prose, daarom staat h1 hier apart.

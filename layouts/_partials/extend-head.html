@@ -1,0 +1,50 @@
+{{- /*
+  Lettertypen. De bestanden staan in assets/fonts/ en worden dus vanaf je
+  eigen site geserveerd, niet bij Google opgehaald: geen verkeer naar een
+  server buiten de EU en niets dat stukgaat als die server traag is.
+
+  Hugo vult de adressen hieronder zelf in. Daardoor kloppen ze zowel op
+  gebruikersnaam.github.io/repo/ als straks op een eigen domein — een
+  handgeschreven /fonts/... zou op de eerste een 404 geven.
+
+  Welke tekst welk lettertype krijgt, staat in assets/css/custom.css.
+*/ -}}
+{{- $inter := resources.Get "fonts/inter-variable.woff2" -}}
+{{- $poppins600 := resources.Get "fonts/poppins-600.woff2" -}}
+{{- $poppins700 := resources.Get "fonts/poppins-700.woff2" -}}
+
+{{- with $inter }}
+<link rel="preload" as="font" type="font/woff2" href="{{ .RelPermalink }}" crossorigin>
+{{- end }}
+{{- /* Alleen de twee die op elke pagina meteen zichtbaar zijn: Inter voor de
+       tekst en Poppins 700 voor de paginatitel. Poppins 600 komt pas verderop
+       op de pagina voor en wordt gewoon nagehaald. */ -}}
+{{- with $poppins700 }}
+<link rel="preload" as="font" type="font/woff2" href="{{ .RelPermalink }}" crossorigin>
+{{- end }}
+
+<style>
+  /* Inter is een variabel bestand voor alle gewichten van 300 tot 800;
+     daarom staat er een bereik in font-weight en geen los getal. */
+  @font-face {
+    font-family: "Inter";
+    src: url("{{ $inter.RelPermalink }}") format("woff2");
+    font-weight: 300 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Poppins";
+    src: url("{{ $poppins600.RelPermalink }}") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Poppins";
+    src: url("{{ $poppins700.RelPermalink }}") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
