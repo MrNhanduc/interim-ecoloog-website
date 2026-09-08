@@ -1,4 +1,15 @@
 {{- /*
+  Tweede voetregel, onder de copyrightregel van het thema: de fotocredit en
+  de link naar de privacyverklaring. Die pagina staat bewust niet in het
+  hoofdmenu — daar hoort hij niet, maar hij moet wel vanaf elke pagina
+  bereikbaar zijn, en dat is precies wat de voet is.
+*/ -}}
+<p class="voetregel">
+  Foto&rsquo;s &copy; Pim Godschalk &middot;
+  <a href="{{ "privacy/" | relURL }}">Privacyverklaring</a>
+</p>
+
+{{- /*
   Geeft de menubalk een achtergrond zodra je voorbij de kopband scrollt.
   Zonder dit zweeft witte tekst over crème zodra de band uit beeld is.
   Werkt de JavaScript niet, dan blijft de balk gewoon doorzichtig staan -

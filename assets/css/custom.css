@@ -557,6 +557,59 @@ body > header > nav,
   body > header img, body > header img[class] { max-height: 4rem; }
 }
 
+/* ---------- tweede voetregel ---------- */
+
+/* Staat onder de copyrightregel van het thema en gebruikt dezelfde maat en
+   kleur, zodat het een tweeregelig blokje wordt en geen los element. */
+.voetregel {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  color: rgb(var(--color-neutral-500));
+}
+
+.voetregel a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.voetregel a:hover {
+  color: var(--groen);
+}
+
+/* ---------- uitklapmenu op smalle schermen ---------- */
+
+/* Het thema zet donkere tekst op de header (text-neutral-900). Op de donkere
+   band viel het hamburgericoon daardoor weg. Een klasse weegt zwaarder dan een
+   elementselector, dus grijpen we hier het icoon zelf aan. */
+#menu-button > div:not(#menu-wrapper) svg,
+#menu-button > div:not(#menu-wrapper) path {
+  fill: #fff;
+  color: #fff;
+}
+
+/* Uitgeklapt legt het thema een lichte sluier over de pagina. De menuregels
+   zijn wit en haalden daarop het contrast niet; een dekkende donkergroene
+   laag lost dat op en sluit aan bij de banden elders op de site. */
+#menu-wrapper {
+  background: rgba(12, 37, 19, 0.96);
+}
+
+#menu-wrapper svg,
+#menu-wrapper path {
+  fill: #fff;
+  color: #fff;
+}
+
+/* Het thema kleurt een aangewezen menuregel donkergroen; op deze ondergrond
+   is dat onzichtbaar, dus lichtgroen. */
+#menu-wrapper a:hover,
+#menu-wrapper span:hover,
+#menu-button > div:not(#menu-wrapper) > div:hover svg path {
+  color: rgb(var(--color-primary-300));
+  fill: rgb(var(--color-primary-300));
+}
+
 /* ---------- kopband op de andere pagina's ---------- */
 
 .paginakop {

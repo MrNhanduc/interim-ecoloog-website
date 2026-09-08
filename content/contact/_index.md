@@ -67,7 +67,7 @@ gewoon Nederlands - die staan los van de veldnamen.
   <!-- honeypot-veld tegen spam, onzichtbaar voor bezoekers -->
   <input type="text" name="_gotcha" style="display:none">
 
-  <p class="privacy-note">Uw gegevens worden alleen gebruikt om contact met u op te nemen en nooit gedeeld met derden.</p>
+  <p class="privacy-note">Uw gegevens gebruik ik alleen om op uw bericht te reageren. Hoe dat precies werkt staat in de <a href="{{< relref "/privacy" >}}">privacyverklaring</a>.</p>
 
   <button type="submit">Bericht versturen</button>
 </form>
