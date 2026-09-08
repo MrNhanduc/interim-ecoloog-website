@@ -1,8 +1,9 @@
 ---
 layout: "simple"
-# Tijdelijk dezelfde foto als de homepage, zodat je ziet hoe het oogt.
-kopfoto: "img/kop-graspieper.jpg"
-kopfoto_alt: "Graspieper op een weidepaaltje"
+kopfoto: "img/kop-vlinder.jpg"
+kopfoto_alt: "Koninginnenpage op een paardenbloem"
+# Houdt het onderwerp in beeld als de band smaller wordt dan de foto.
+kopfoto_positie: "68% 50%"
 kopregel: "Wie er achter De Interim Ecoloog zit."
 title: "Over mij"
 description: "Wie is De Interim Ecoloog"

@@ -5,6 +5,8 @@ title: "Contact"
 description: "Neem contact op met De Interim Ecoloog"
 kopfoto: "img/kop-patrijs.jpg"
 kopfoto_alt: "Patrijs in ruige vegetatie"
+# Houdt het onderwerp in beeld als de band smaller wordt dan de foto.
+kopfoto_positie: "62% 50%"
 weight: 4
 ---
 

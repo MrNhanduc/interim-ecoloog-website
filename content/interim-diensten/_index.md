@@ -1,8 +1,9 @@
 ---
 layout: "simple"
-# Tijdelijk dezelfde foto als de homepage, zodat je ziet hoe het oogt.
-kopfoto: "img/kop-graspieper.jpg"
-kopfoto_alt: "Graspieper op een weidepaaltje"
+kopfoto: "img/kop-kwikstaart.jpg"
+kopfoto_alt: "Gele kwikstaart in een bloemrijk grasland"
+# Houdt het onderwerp in beeld als de band smaller wordt dan de foto.
+kopfoto_positie: "70% 50%"
 kopregel: "Tijdelijke projectleiding en vervanging bij gemeente of Omgevingsdienst."
 title: "Interim diensten"
 description: "Tijdelijke inzet als ecoloog, projectleider of teamleider"

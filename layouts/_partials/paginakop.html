@@ -4,8 +4,16 @@
   Met een foto: zet in de front matter van de pagina
       kopfoto: "img/bestandsnaam.jpg"
       kopfoto_alt: "Beschrijving van de foto"
+      kopfoto_positie: "70% 50%"   (optioneel)
   Zonder foto valt de band terug op effen donkergroen, zodat een pagina
   nooit stuk gaat omdat het beeld nog ontbreekt.
+
+  kopfoto_positie bepaalt welk deel van de foto in beeld blijft als de band
+  smaller wordt dan de foto. Op een telefoon is de band bijna vierkant en
+  valt er veel van de zijkanten weg; zonder deze regel kadert de browser
+  vanuit het midden en verdwijnt een onderwerp dat rechts in de foto staat.
+  Vuistregel: neem het percentage waar het onderwerp in de foto zit, dan
+  staat het op elk schermformaat op dezelfde plek.
 
   De menubalk ligt over deze band heen en is daarom overal wit; dat is
   de reden dat elke pagina een donkere band krijgt.
@@ -20,6 +28,7 @@
     <picture>
       <source type="image/webp" srcset="{{ $klein.RelPermalink }} 900w, {{ $groot.RelPermalink }} 1800w" sizes="100vw">
       <img class="paginakop__foto" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+           {{ with $.Params.kopfoto_positie }}style="object-position: {{ . }}"{{ end }}
            alt="{{ $.Params.kopfoto_alt | default "" }}" fetchpriority="high" decoding="async">
     </picture>
     <div class="paginakop__sluier" aria-hidden="true"></div>

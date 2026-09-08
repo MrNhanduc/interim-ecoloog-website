@@ -1,8 +1,9 @@
 ---
 layout: "simple"
-# Tijdelijk dezelfde foto als de homepage, zodat je ziet hoe het oogt.
-kopfoto: "img/kop-graspieper.jpg"
-kopfoto_alt: "Graspieper op een weidepaaltje"
+kopfoto: "img/kop-rietzanger.jpg"
+kopfoto_alt: "Zingende rietzanger in een rietkraag"
+# Houdt het onderwerp in beeld als de band smaller wordt dan de foto.
+kopfoto_positie: "70% 50%"
 kopregel: "Van quickscan tot nader onderzoek naar beschermde soorten."
 title: "Werkvelden"
 description: "Alle ecologische diensten van De Interim Ecoloog op een rij"
