@@ -1,6 +1,6 @@
 ---
 title: "Voor al uw ecologische vraagstukken"
-description: "Quickscans, nader ecologisch onderzoek, ecologische begeleiding en stikstofberekeningen. Werkzaam door heel Nederland."
+description: "Quickscans, nader ecologisch onderzoek, ecologische begeleiding en voortoets stikstof. Werkzaam door heel Nederland."
 
 hero:
   afbeelding: "img/hero-graspieper.jpg"
@@ -9,7 +9,7 @@ hero:
   # het er geen is. Zet hier weer een regel "label:" neer als je het
   # ooit terug wilt; de opmaak ervoor staat nog in het thema.
   kop: "Voor al uw ecologische vraagstukken"
-  tekst: "Quickscans, nader onderzoek, ecologische begeleiding en stikstofberekeningen — werkzaam door heel Nederland."
+  tekst: "Quickscans, nader onderzoek, ecologische begeleiding en voortoets stikstof — werkzaam door heel Nederland."
   knop1:
     tekst: "Neem contact op"
     link: "/contact/"
@@ -27,7 +27,7 @@ cijfers:
     label: "jaar werkervaring"
 ---
 
-De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een stikstofberekening met behulp van AERIUS. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
+De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een voortoets stikstof met behulp van AERIUS. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
 
 De Interim Ecoloog is werkzaam door heel Nederland. Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en tijdelijke vervanging van medewerkers, bijvoorbeeld bij een gemeente of Omgevingsdienst.
 

@@ -53,6 +53,13 @@ disableLanguages = ["en"]
   # gestructureerde gegevens. Dit werkt via de eigen kopie van head.html.
   homeTitle = "Ecologisch onderzoek en advies | De Interim Ecoloog"
 
+  # Deelafbeelding: het beeld dat LinkedIn, WhatsApp en Teams tonen als iemand
+  # een link naar de site deelt. Hugo maakt hier zelf de og:image- en
+  # twitter:image-regels van, en zet de kaart meteen op het grote formaat.
+  # Het bestand staat in static/img/ en wordt dus niet door bezoekers geladen,
+  # alleen door de app die het voorbeeld maakt.
+  images = ["img/og-deelafbeelding.jpg"]
+
   [params.header]
     layout = "hybrid"       # hamburgermenu op mobiel, gewone balk op desktop
     logo = "img/logo.png"         # staat in assets/img/
