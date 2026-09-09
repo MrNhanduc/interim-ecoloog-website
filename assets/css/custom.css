@@ -559,12 +559,38 @@ body > header > nav,
 
 /* ---------- tweede voetregel ---------- */
 
-/* Staat onder de copyrightregel van het thema en gebruikt dezelfde maat en
-   kleur, zodat het een tweeregelig blokje wordt en geen los element. */
+/* Vervangt de copyrightregel van het thema (uitgezet in hugo.toml): alles op
+   één regel, gescheiden door streepjes. */
 .voetregel {
-  margin: 0.35rem 0 0;
+  display: flex;
+  align-items: baseline;
+  column-gap: 0.4em;
+  margin: 0;
   font-size: 0.875rem;
   color: rgb(var(--color-neutral-500));
+}
+
+.voetregel__deel {
+  white-space: nowrap;
+}
+
+.voetregel__streep {
+  color: rgb(var(--color-neutral-400));
+}
+
+/* Op een telefoon past de regel niet in zijn geheel. In plaats van hem te
+   laten afbreken met een streepje aan het einde van de regel, zetten we de
+   drie delen dan onder elkaar en laten we de streepjes weg. */
+@media (max-width: 560px) {
+  .voetregel {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 0.15rem;
+  }
+
+  .voetregel__streep {
+    display: none;
+  }
 }
 
 .voetregel a {

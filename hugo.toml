@@ -65,6 +65,11 @@ disableLanguages = ["en"]
   [params.footer]
     showThemeAttribution = false
     showAppearanceSwitcher = false
+    # De copyrightregel van het thema staat uit: die staat nu samen met de
+    # fotocredit en de link naar de privacyverklaring op één regel in
+    # layouts/_partials/extend-footer.html. Dat moet daar, want alleen daar
+    # kan Hugo het adres van de privacypagina invullen.
+    showCopyright = false
 
 [menu]
   [[menu.main]]

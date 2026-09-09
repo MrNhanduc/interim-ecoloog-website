@@ -1,12 +1,22 @@
 {{- /*
-  Tweede voetregel, onder de copyrightregel van het thema: de fotocredit en
-  de link naar de privacyverklaring. Die pagina staat bewust niet in het
-  hoofdmenu — daar hoort hij niet, maar hij moet wel vanaf elke pagina
-  bereikbaar zijn, en dat is precies wat de voet is.
+  De voetregel: copyright, fotocredit en de link naar de privacyverklaring,
+  alles op één regel. De eigen copyrightregel van het thema staat daarom uit
+  (showCopyright = false in hugo.toml).
+
+  Dit staat hier en niet in hugo.toml, omdat alleen hier het adres van de
+  privacypagina door Hugo ingevuld kan worden; een handgeschreven /privacy/
+  zou op de github.io-submap een 404 geven.
+
+  De privacypagina staat bewust niet in het hoofdmenu — daar hoort hij niet,
+  maar hij moet wel vanaf elke pagina bereikbaar zijn, en dat is precies wat
+  de voet is.
 */ -}}
 <p class="voetregel">
-  Foto&rsquo;s &copy; Pim Godschalk &middot;
-  <a href="{{ "privacy/" | relURL }}">Privacyverklaring</a>
+  <span class="voetregel__deel">&copy; {{ now.Format "2006" }} De Interim Ecoloog</span>
+  <span class="voetregel__streep" aria-hidden="true">|</span>
+  <span class="voetregel__deel">Foto&rsquo;s &copy; Pim Godschalk</span>
+  <span class="voetregel__streep" aria-hidden="true">|</span>
+  <span class="voetregel__deel"><a href="{{ "privacy/" | relURL }}">Privacyverklaring</a></span>
 </p>
 
 {{- /*
