@@ -1,13 +1,15 @@
 ---
 title: "Voor al uw ecologische vraagstukken"
-description: "Quickscans, nader ecologisch onderzoek, ecologische begeleiding en stikstofberekeningen. Landelijk werkzaam, met een voorkeur voor midden en oost Nederland."
+description: "Quickscans, nader ecologisch onderzoek, ecologische begeleiding en stikstofberekeningen. Werkzaam door heel Nederland."
 
 hero:
   afbeelding: "img/hero-graspieper.jpg"
   alt: "Graspieper op een weidepaaltje"
-  label: "Ecologisch onderzoek en advies"
+  # Het labeltje boven de kop is er bewust uit: het leek een knop terwijl
+  # het er geen is. Zet hier weer een regel "label:" neer als je het
+  # ooit terug wilt; de opmaak ervoor staat nog in het thema.
   kop: "Voor al uw ecologische vraagstukken"
-  tekst: "Quickscans, nader onderzoek, ecologische begeleiding en stikstofberekeningen — landelijk, met een voorkeur voor midden en oost Nederland."
+  tekst: "Quickscans, nader onderzoek, ecologische begeleiding en stikstofberekeningen — werkzaam door heel Nederland."
   knop1:
     tekst: "Neem contact op"
     link: "/contact/"
@@ -27,7 +29,7 @@ cijfers:
 
 De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een stikstofberekening met behulp van AERIUS. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
 
-De Interim Ecoloog werkt landelijk maar met een voorkeur voor het midden en oosten van Nederland in verband met efficiëntie en duurzaamheid. Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en tijdelijke vervanging van medewerkers, bijvoorbeeld bij een gemeente of Omgevingsdienst.
+De Interim Ecoloog is werkzaam door heel Nederland. Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en tijdelijke vervanging van medewerkers, bijvoorbeeld bij een gemeente of Omgevingsdienst.
 
 Heeft u interesse in deze diensten of een andere ecologische vraag? Neem dan contact op.
 
@@ -37,8 +39,8 @@ Heeft u interesse in deze diensten of een andere ecologische vraag? Neem dan con
 {{< kaart titel="Quickscan en nader onderzoek" >}}
 Een heldere beoordeling van beschermde soorten op uw locatie, en gericht vervolgonderzoek waar dat nodig blijkt.
 {{< /kaart >}}
-{{< kaart titel="Begeleiding en ontheffingen" >}}
-Ecologische begeleiding van uw werkzaamheden en de aanvraag van ontheffingen, zodat het werk door kan gaan binnen de regels.
+{{< kaart titel="Begeleiding en vergunningen" >}}
+Ecologische begeleiding van uw werkzaamheden en het aanvragen van de benodigde omgevingsvergunningen, zodat het werk door kan gaan binnen de regels.
 {{< /kaart >}}
 {{< kaart titel="Stikstof en invasieve exoten" >}}
 Stikstofberekeningen met AERIUS, en inventarisaties van Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.

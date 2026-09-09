@@ -48,3 +48,57 @@
     font-display: swap;
   }
 </style>
+
+
+{{- /*
+  Bedrijfsgegevens voor zoekmachines, alleen op de homepage.
+
+  Dit blok vertelt Google in zijn eigen taal wie je bent: bedrijfsnaam,
+  plaats, telefoonnummer, werkgebied en welke diensten je levert. Zonder dit
+  moet een zoekmachine het uit de lopende tekst zien te raden.
+
+  Bewust NIET opgenomen: straat en huisnummer (alleen plaats en land) en
+  openingstijden. Wil je later toch het volledige adres tonen — bijvoorbeeld
+  bij een Google Bedrijfsprofiel — dan komen "streetAddress" en "postalCode"
+  in het address-blok erbij.
+
+  Congo zet daarnaast zelf een klein WebSite-blok neer; die twee bijten
+  elkaar niet.
+*/ -}}
+{{- if .IsHome }}
+  {{- $logo := resources.Get "img/logo.png" -}}
+  {{- $beeld := resources.Get "img/hero-graspieper.jpg" -}}
+  {{- $bedrijf := dict
+      "@context" "https://schema.org"
+      "@type" "ProfessionalService"
+      "@id" (printf "%s#bedrijf" (absURL "/"))
+      "name" "De Interim Ecoloog"
+      "legalName" "De Interim Ecoloog B.V."
+      "description" "Ecologisch onderzoek en advies: quickscan flora en fauna, nader soortenonderzoek, ecologische begeleiding, stikstofberekeningen met AERIUS en interim inzet als ecoloog of projectleider."
+      "url" (absURL "/")
+      "telephone" "+31626810089"
+      "email" "info@deinterimecoloog.nl"
+      "founder" (dict "@type" "Person" "name" "Pim Godschalk")
+      "knowsLanguage" "nl-NL"
+      "sameAs" (slice "https://www.linkedin.com/in/pim-godschalk-5b050220/")
+      "address" (dict "@type" "PostalAddress" "addressLocality" "Ochten" "addressCountry" "NL")
+      "areaServed" (dict "@type" "Country" "name" "Nederland")
+      "identifier" (dict "@type" "PropertyValue" "name" "KvK-nummer" "value" "91795850")
+      "logo" (cond (ne $logo nil) $logo.Permalink "")
+      "image" (cond (ne $beeld nil) $beeld.Permalink "")
+      "hasOfferCatalog" (dict
+        "@type" "OfferCatalog"
+        "name" "Diensten"
+        "itemListElement" (slice
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Quickscan flora en fauna"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Nader ecologisch onderzoek naar beschermde soorten"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Ecologische begeleiding van werkzaamheden"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Mitigatie en compensatie"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Aanvragen omgevingsvergunning flora- en fauna-activiteit"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Stikstofberekening met AERIUS"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Toetsing Natura 2000 en Natuurnetwerk Nederland"))
+          (dict "@type" "Offer" "itemOffered" (dict "@type" "Service" "name" "Interim ecoloog, projectleider of teamleider"))
+        ))
+  -}}
+  <script type="application/ld+json">{{ $bedrijf | jsonify | safeJS }}</script>
+{{- end }}

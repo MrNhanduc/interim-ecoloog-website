@@ -46,7 +46,12 @@ disableLanguages = ["en"]
   # ------------------------------------------------------------------
   robots = "noindex, nofollow"
 
-  description = "Voor al uw ecologische vraagstukken — quickscans, ecologisch onderzoek, ontheffingen en interim diensten."
+  description = "Voor al uw ecologische vraagstukken — quickscans, ecologisch onderzoek, vergunningen en interim diensten."
+
+  # Alleen de titel van de homepage. De sitenaam hierboven blijft kort, want
+  # die staat ook achter de titel van elke andere pagina, in het logo en in de
+  # gestructureerde gegevens. Dit werkt via de eigen kopie van head.html.
+  homeTitle = "Ecologisch onderzoek en advies | De Interim Ecoloog"
 
   [params.header]
     layout = "hybrid"       # hamburgermenu op mobiel, gewone balk op desktop

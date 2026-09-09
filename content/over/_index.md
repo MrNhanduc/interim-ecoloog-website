@@ -12,7 +12,7 @@ weight: 3
 
 {{< figure src="pim-godschalk.jpg" alt="Pim Godschalk, oprichter van De Interim Ecoloog" class="over-mij-foto" >}}
 
-De Interim Ecoloog is opgericht door Pim Godschalk. Hij heeft vijftien jaar werkervaring als ecoloog: tien jaar bij een multidisciplinair milieuadviesbureau en de laatste vijf jaar als zelfstandige. Daarbij heeft hij veel kennis opgedaan over de Wet natuurbescherming, over beschermde soorten en het werken als project- en teamleider. Hij heeft uitstekende kennis van vogels, vleermuizen, amfibieën en reptielen en is een echte generalist. In de ecologie spelen vaak veel soort(groep)en tegelijk een rol, zodat een brede kennis essentieel is om een gedegen advies te leveren.
+De Interim Ecoloog is opgericht door Pim Godschalk. Hij heeft vijftien jaar werkervaring als ecoloog: tien jaar bij een multidisciplinair milieuadviesbureau en de laatste vijf jaar als zelfstandige. Daarbij heeft hij veel kennis opgedaan over de natuurwetgeving — eerst de Wet natuurbescherming, sinds 2024 de Omgevingswet — over beschermde soorten en het werken als project- en teamleider. Hij heeft uitstekende kennis van vogels, vleermuizen, amfibieën en reptielen en is een echte generalist. In de ecologie spelen vaak veel soort(groep)en tegelijk een rol, zodat een brede kennis essentieel is om een gedegen advies te leveren.
 
 Alle foto's op deze site heeft hij zelf gemaakt, in het veld, tijdens het werk en daarbuiten.
 
