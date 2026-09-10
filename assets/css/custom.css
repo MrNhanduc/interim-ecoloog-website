@@ -557,6 +557,186 @@ body > header > nav,
   body > header img, body > header img[class] { max-height: 4rem; }
 }
 
+/* ---------- voortoetsteller ---------- */
+
+.vt {
+  margin: 2rem 0 1rem;
+}
+
+.vt-vak {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+  padding: 2rem 1.5rem;
+  border: 2px dashed var(--rand);
+  border-radius: 20px;
+  background: var(--zand-licht);
+  color: rgb(var(--color-neutral-700));
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.vt-vak:hover,
+.vt-vak:focus-visible {
+  border-color: var(--groen);
+  background: rgb(var(--color-primary-50));
+  outline: none;
+}
+
+/* Terwijl er een bestand boven het vak zweeft. */
+.vt-vak.vt-over {
+  border-color: var(--groen);
+  border-style: solid;
+  background: rgb(var(--color-primary-50));
+}
+
+.vt-vak__titel {
+  font-family: var(--font-kop);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--groen-donker);
+}
+
+.vt-vak__sub {
+  font-size: 0.92rem;
+  color: rgb(var(--color-neutral-600));
+}
+
+.vt-bezig {
+  margin: 1.5rem 0;
+  color: rgb(var(--color-neutral-600));
+}
+
+.vt-fout {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  border-inline-start: 4px solid var(--rood);
+  background: rgb(var(--color-neutral-50));
+}
+
+.vt-melding {
+  margin: 1.25rem 0;
+  padding: 0.85rem 1.1rem;
+  border-radius: 12px;
+  border-inline-start: 4px solid var(--zand);
+  background: var(--zand-licht);
+  font-size: 0.92rem;
+}
+
+/* De twee getallen die de bezoeker komt halen. */
+.vt-uitslag {
+  margin: 2rem 0 1.5rem;
+  padding: 1.75rem;
+  border-radius: 20px;
+  background: rgb(var(--color-primary-900));
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.vt-cijfer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.vt-cijfer__label {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgb(var(--color-primary-200));
+}
+
+.vt-cijfer__getal {
+  font-family: var(--font-kop);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.vt-voorbehoud {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgb(var(--color-primary-100));
+  max-width: 60ch;
+}
+
+.vt-meta {
+  font-size: 0.9rem;
+  color: rgb(var(--color-neutral-600));
+  margin: 0 0 1.25rem;
+}
+
+/* De tabel mag zelf schuiven op een smal scherm; de pagina niet. */
+.vt-tabelhouder {
+  overflow-x: auto;
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+}
+
+.vt-tabel {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 640px;
+  font-size: 0.88rem;
+}
+
+.vt-tabel th,
+.vt-tabel td {
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--rand);
+}
+
+.vt-tabel thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(var(--color-neutral-600));
+  background: var(--zand-licht);
+}
+
+.vt-tabel tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.vt-tabel .vt-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.vt-tabel .vt-uit {
+  color: rgb(var(--color-neutral-500));
+}
+
+.vt-legenda {
+  font-size: 0.82rem;
+  color: rgb(var(--color-neutral-600));
+  margin: 0.75rem 0 0;
+}
+
+.vt-formulier {
+  margin-top: 2.5rem;
+}
+
+.vt-formulier__kop {
+  margin: 0 0 0.35rem;
+  font-size: 1.3rem;
+}
+
+.vt-formulier__lead {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: rgb(var(--color-neutral-600));
+}
+
 /* ---------- tweede voetregel ---------- */
 
 /* Vervangt de copyrightregel van het thema (uitgezet in hugo.toml): alles op

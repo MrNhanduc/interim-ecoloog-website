@@ -1,0 +1,92 @@
+{{- /*
+  Het sleepvak van de voortoetsteller.
+
+  Gebruik in de content:  {{< voortoetsteller >}}
+
+  Alles rekent in de browser van de bezoeker. De PDF wordt niet geüpload; de
+  enige verbinding naar buiten is die met de open data van AERIUS, en daar
+  gaan alleen hexagoonnummers naartoe. De rekenregels staan in
+  assets/js/voortoets/kern.js en zijn de omzetting van de Python-versie.
+
+  pdf.js (Apache 2.0, licentie staat ernaast) wordt pas opgehaald zodra er een
+  bestand komt: samen ruim een megabyte, en dat hoeft niemand te laden die
+  alleen de pagina leest.
+*/ -}}
+{{- $pagina := resources.Get "js/voortoets/pagina.js" | js.Build (dict "minify" true "target" "es2017") -}}
+{{- $pdfjs := resources.Get "js/voortoets/pdf.min.js" -}}
+{{- $worker := resources.Get "js/voortoets/pdf.worker.min.js" -}}
+
+<div class="vt">
+  <div id="vt-zonder-js" class="vt-melding">
+    Deze teller heeft JavaScript nodig. Staat dat uit, mail dan gerust je
+    AERIUS-PDF naar <a href="mailto:info@deinterimecoloog.nl">info@deinterimecoloog.nl</a>,
+    dan reken ik hem voor je door.
+  </div>
+
+  <div id="vt-vak" class="vt-vak" hidden tabindex="0" role="button"
+       aria-controls="vt-uitkomst"
+       data-pdfjs="{{ $pdfjs.RelPermalink }}"
+       data-worker="{{ $worker.RelPermalink }}">
+    <span class="vt-vak__titel">Sleep hier uw AERIUS-projectberekening</span>
+    <span class="vt-vak__sub">of klik om een PDF te kiezen</span>
+  </div>
+  <input type="file" id="vt-kiezer" accept="application/pdf,.pdf" hidden>
+
+  <div id="vt-uitkomst" aria-live="polite"></div>
+
+  {{- /* Het offerteformulier verschijnt pas als er een uitkomst is. De
+         verborgen velden worden door pagina.js gevuld, zodat de aanvraag
+         compleet binnenkomt en er geen tweede pagina nodig is. */ -}}
+  <form id="vt-formulier" class="contact-form vt-formulier" hidden
+        action="https://formspree.io/f/xaeyjzbw" method="POST">
+    <h2 class="vt-formulier__kop">Offerte aanvragen</h2>
+    <p class="vt-formulier__lead">De uitkomst hierboven gaat automatisch mee.
+      U krijgt zo snel mogelijk een reactie.</p>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label for="vt-naam">Naam</label>
+        <input id="vt-naam" name="name" type="text" placeholder="Voor- en achternaam" required>
+      </div>
+      <div class="form-field">
+        <label for="vt-email">E-mailadres</label>
+        <input id="vt-email" name="email" type="email" placeholder="naam@voorbeeld.nl" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field">
+        <label for="vt-bedrijf">Bedrijf of organisatie</label>
+        <input id="vt-bedrijf" name="bedrijf" type="text" placeholder="Naam van uw organisatie">
+      </div>
+      <div class="form-field">
+        <label for="vt-tel">Telefoonnummer <span class="optional">(optioneel)</span></label>
+        <input id="vt-tel" name="phone" type="tel" placeholder="06 12 34 56 78">
+      </div>
+    </div>
+
+    <div class="form-field form-field--full">
+      <label for="vt-bericht">Toelichting <span class="optional">(optioneel)</span></label>
+      <textarea id="vt-bericht" name="message" placeholder="Bijvoorbeeld de gewenste planning."></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="Offerteaanvraag voortoets via de website">
+    <input type="hidden" name="project" value="">
+    <input type="hidden" name="opdrachtgever" value="">
+    <input type="hidden" name="rekenjaar" value="">
+    <input type="hidden" name="aerius" value="">
+    <input type="hidden" name="eenheden" value="">
+    <input type="hidden" name="indicatie" value="">
+    <input type="hidden" name="gebieden" value="">
+    <input type="hidden" name="overzicht" value="">
+    <input type="text" name="_gotcha" style="display:none">
+
+    <p class="privacy-note">Uw gegevens en de uitkomst gebruik ik alleen om op uw
+      aanvraag te reageren. Hoe dat werkt staat in de
+      <a href="{{ "privacy/" | relURL }}">privacyverklaring</a>.</p>
+
+    <button type="submit">Offerte aanvragen</button>
+  </form>
+</div>
+
+<script type="module" src="{{ $pagina.RelPermalink }}"></script>

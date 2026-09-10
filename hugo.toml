@@ -85,21 +85,25 @@ disableLanguages = ["en"]
 
 [menu]
   [[menu.main]]
+    name = "Voortoets"
+    pageRef = "/voortoets"
+    weight = 1
+  [[menu.main]]
     name = "Werkvelden"
     pageRef = "/werkvelden"
-    weight = 1
+    weight = 2
   [[menu.main]]
     name = "Interim diensten"
     pageRef = "/interim-diensten"
-    weight = 2
+    weight = 3
   [[menu.main]]
     name = "Over"
     pageRef = "/over"
-    weight = 3
+    weight = 4
   [[menu.main]]
     name = "Contact"
     pageRef = "/contact"
-    weight = 4
+    weight = 5
 
 [outputs]
   # "robots" moet hier expliciet bij staan: deze regel overschrijft de

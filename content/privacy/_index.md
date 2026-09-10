@@ -8,7 +8,7 @@ weight: 5
 # een vogelfoto boven een juridische tekst leidt alleen maar af.
 ---
 
-De Interim Ecoloog vraagt zo min mogelijk van u. Deze site plaatst geen cookies, houdt geen bezoekersstatistieken bij en laadt niets van servers van derden. Alleen als u zelf contact opneemt, verwerk ik gegevens van u. Hieronder staat precies wat er dan gebeurt.
+De Interim Ecoloog vraagt zo min mogelijk van u. Deze site plaatst geen cookies, houdt geen bezoekersstatistieken bij en laadt niets van servers van derden. Alleen als u zelf contact opneemt of de voortoetsteller gebruikt, gaan er gegevens de deur uit. Hieronder staat precies wat er dan gebeurt.
 
 ## Wie verwerkt uw gegevens
 
@@ -49,6 +49,14 @@ Met deze partijen zijn verwerkersafspraken van toepassing. Verder deel ik gegeve
 Deze site plaatst **geen cookies** en slaat niets op in uw browser. Er is geen bezoekersteller, geen Google Analytics en geen andere vorm van meting: ik heb geen belangstelling voor gegevens over uw bezoek. Er staan ook geen ingesloten kaarten, video's of sociale-mediaknoppen op de site, en zelfs de lettertypen worden vanaf deze site zelf geleverd in plaats van bij een externe partij opgehaald. Daarom ziet u hier geen cookiemelding: er valt niets toe te staan of te weigeren.
 
 De enige uitzondering is het contactformulier. Op het moment dat u op *Bericht versturen* klikt — en pas dan — gaan de door u ingevulde gegevens naar Formspree. Vult u het formulier niet in, dan verlaat er niets van u deze site.
+
+## De voortoetsteller
+
+Op de pagina [Voortoets](../voortoets/) kunt u een AERIUS-berekening laten doorrekenen. Die berekening draait volledig in uw eigen browser. **De PDF wordt niet geüpload**: hij bereikt deze website niet, en mij dus ook niet.
+
+Om te bepalen welke habitattypen op uw rekenpunten liggen, stelt uw browser tijdens het gebruik een vraag aan de open data van AERIUS (`connect.aerius.nl`). Daarbij gaan alleen hexagoonnummers de deur uit — geen bestanden, geen projectnaam, geen opdrachtgever. Voor die dienst is uw IP-adres zichtbaar, net als bij ieder ander websitebezoek.
+
+Klikt u daarna op *Offerte aanvragen*, dan verstuurt u wat op dat moment op uw scherm staat: de uitkomst van de teller en de gegevens die u zelf invult. Dat gaat via Formspree naar mijn mailbox, net als het gewone contactformulier, en valt onder dezelfde afspraken als hierboven beschreven.
 
 ## Hoe lang ik uw gegevens bewaar
 
