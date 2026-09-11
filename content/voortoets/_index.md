@@ -1,9 +1,9 @@
 ---
 layout: "simple"
-kopfoto: "img/kop-rietzanger.jpg"
-kopfoto_alt: "Zingende rietzanger in een rietkraag"
+kopfoto: "img/kop-meidoorn.jpg"
+kopfoto_alt: "Meidoorn in bes"
 # Houdt het onderwerp in beeld als de band smaller wordt dan de foto.
-kopfoto_positie: "70% 50%"
+kopfoto_positie: "62% 50%"
 kopregel: "Weet binnen een minuut wat een voortoets voor uw project kost."
 title: "Voortoets"
 description: "Bereken direct wat een voortoets stikstof kost: sleep uw AERIUS-berekening in de teller"
