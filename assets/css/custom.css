@@ -619,6 +619,26 @@ body > header > nav,
   background: rgb(var(--color-neutral-50));
 }
 
+/* Geen toename is goed nieuws voor de bezoeker, geen storing. Daarom groen
+   en niet rood: dezelfde vorm als de foutmelding, andere lading. */
+.vt-goed {
+  margin: 2rem 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 16px;
+  border-inline-start: 4px solid var(--groen);
+  background: rgb(var(--color-primary-50));
+  color: rgb(var(--color-primary-950));
+}
+
+.vt-goed p {
+  margin: 0;
+  max-width: 62ch;
+}
+
+.vt-goed strong {
+  color: var(--groen-donker);
+}
+
 .vt-melding {
   margin: 1.25rem 0;
   padding: 0.85rem 1.1rem;

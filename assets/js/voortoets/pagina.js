@@ -98,7 +98,17 @@ async function verwerk(bestand) {
 
   const toename = metToename(taak);
   if (!toename.length) {
-    throw new Error('In deze berekening heeft geen enkel rekenpunt een toename.');
+    // Geen toename is geen storing maar het beste antwoord dat de teller kan
+    // geven: dan is er niets te toetsen. Daarom een eigen uitkomst en geen
+    // foutmelding.
+    return {
+      geenToename: true,
+      project: taak.project,
+      opdrachtgever: taak.opdrachtgever,
+      rekenjaar: taak.rekenjaar,
+      aerius: taak.aeriusVersie,
+      meldingen,
+    };
   }
 
   const toenamePer = new Map(toename.map((r) => [r.id, r.depositie]));
@@ -175,7 +185,30 @@ function fout(tekst) {
   if (formulier) formulier.hidden = true;
 }
 
+function metaRegel(d) {
+  return '<p class="vt-meta">' + ontsnap(d.project) +
+    (d.opdrachtgever ? ' &middot; ' + ontsnap(d.opdrachtgever) : '') +
+    '<br>rekenjaar ' + ontsnap(d.rekenjaar) + ' &middot; AERIUS ' + ontsnap(d.aerius) +
+    '</p>';
+}
+
+function toonGeenToename(d) {
+  let h = '<div class="vt-goed" role="status">' +
+    '<p><strong>Goed nieuws!</strong> Er zijn geen rekenpunten met een toename. ' +
+    'Een ecologische voortoets stikstof is in dit geval niet nodig. Andersoortige ' +
+    'toestemmingen kunnen nog wel noodzakelijk zijn voor uw project.</p></div>';
+  h += metaRegel(d);
+  for (const m of d.meldingen) {
+    h += '<div class="vt-melding">' + ontsnap(m) + '</div>';
+  }
+  uitkomst.innerHTML = h;
+  if (details) details.innerHTML = '';
+  if (formulier) formulier.hidden = true;
+}
+
 function toon(d) {
+  if (d.geenToename) return toonGeenToename(d);
+
   const bedrag = (d.maatwerk ? 'vanaf ' : '') + '&euro; ' + euro(d.prijs);
   const voorbehoud = d.maatwerk
     ? 'Bij een project van deze omvang stel ik een maatwerkofferte op; het genoemde ' +

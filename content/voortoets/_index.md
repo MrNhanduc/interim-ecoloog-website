@@ -4,7 +4,7 @@ kopfoto: "img/kop-meidoorn.jpg"
 kopfoto_alt: "Meidoorn in bes"
 # Houdt het onderwerp in beeld als de band smaller wordt dan de foto.
 kopfoto_positie: "62% 50%"
-kopregel: "Weet binnen een minuut wat een voortoets voor uw project kost."
+kopregel: "Ontdek binnen een minuut wat een ecologische beoordeling stikstof voor uw project kost."
 title: "Voortoets"
 description: "Bereken direct wat een voortoets stikstof kost: sleep uw AERIUS-berekening in de teller"
 weight: 0
@@ -27,7 +27,7 @@ Daarbij worden de volgende keuzes gemaakt:
 
 ## Uw bestand blijft van u
 
-De berekening draait volledig in uw eigen browser. De PDF wordt niet geüpload en komt nergens op een server terecht — ook niet op die van mij. Het enige verkeer naar buiten is een vraag aan de open data van AERIUS: welke habitattypen liggen op deze hexagonen, en wat is daar de achtergronddepositie. Daarbij gaan alleen hexagoonnummers de deur uit, geen projectgegevens.
+De berekening draait volledig in uw eigen browser. De PDF wordt niet geüpload en komt nergens op een server terecht. Het enige verkeer naar buiten is een vraag aan de open data van AERIUS: welke habitattypen liggen op deze hexagonen, en wat is daar de achtergronddepositie. Daarbij gaan alleen hexagoonnummers de deur uit, geen projectgegevens.
 
 Pas als u zelf op *Offerte aanvragen* klikt, wordt er iets verstuurd — en dan alleen wat u op dat moment op uw scherm ziet staan.
 
