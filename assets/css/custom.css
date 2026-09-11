@@ -726,6 +726,13 @@ body > header > nav,
   margin-top: 2.5rem;
 }
 
+/* De onderbouwing staat onder het formulier; een eigen kop maakt duidelijk
+   dat het een tweede blok is en niet de staart van de aanvraag. */
+.vt-details__kop {
+  margin: 3rem 0 1rem;
+  font-size: 1.3rem;
+}
+
 .vt-formulier__kop {
   margin: 0 0 0.35rem;
   font-size: 1.3rem;

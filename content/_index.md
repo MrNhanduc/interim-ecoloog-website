@@ -19,7 +19,7 @@ hero:
 
 # Pas deze getallen aan wanneer ze veranderen; de balk past zich vanzelf aan.
 cijfers:
-  - getal: "30+"
+  - getal: "50+"
     label: "opdrachtgevers"
   - getal: "100+"
     label: "uitgevoerde projecten"
@@ -27,11 +27,13 @@ cijfers:
     label: "jaar werkervaring"
 ---
 
-De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een voortoets stikstof met behulp van AERIUS. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
+De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een ecologische voortoets stikstof. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
 
-De Interim Ecoloog is werkzaam door heel Nederland. Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en tijdelijke vervanging van medewerkers, bijvoorbeeld bij een gemeente of Omgevingsdienst.
+Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en tijdelijke vervanging van medewerkers, bijvoorbeeld bij een gemeente of Omgevingsdienst.
 
-Heeft u interesse in deze diensten of een andere ecologische vraag? Neem dan contact op.
+De Interim Ecoloog is werkzaam door heel Nederland. 
+
+Heeft u interesse in deze diensten of heeft u een andere ecologische vraag? Neem dan gerust contact op.
 
 ## Wat ik voor u kan doen
 
@@ -40,10 +42,10 @@ Heeft u interesse in deze diensten of een andere ecologische vraag? Neem dan con
 Een heldere beoordeling van beschermde soorten op uw locatie, en gericht vervolgonderzoek waar dat nodig blijkt.
 {{< /kaart >}}
 {{< kaart titel="Begeleiding en vergunningen" >}}
-Ecologische begeleiding van uw werkzaamheden en het aanvragen van de benodigde omgevingsvergunningen, zodat het werk door kan gaan binnen de regels.
+Ecologische begeleiding van uw werkzaamheden en het aanvragen van de benodigde omgevingsvergunning, zodat het werk door kan gaan binnen de regels.
 {{< /kaart >}}
-{{< kaart titel="Stikstof en invasieve exoten" >}}
-Stikstofberekeningen met AERIUS, en inventarisaties van Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
+{{< kaart titel="Voortoets stikstof en AERIUS" >}}
+Stikstofberekeningen met AERIUS, maar ook een ecologische voortoets stikstof behoort tot de mogelijkheden.
 {{< /kaart >}}
 {{< /kaarten >}}
 
@@ -55,10 +57,10 @@ Stikstofberekeningen met AERIUS, en inventarisaties van Japanse duizendknoop, Re
 
 {{< punten >}}
 {{< punt titel="Kwaliteit" >}}
-Het leveren van kwaliteit is één van de kernwaarden van De Interim Ecoloog. Met vijftien jaar werkervaring in veldwerk, rapportage en projectleiding is er weinig wat ik niet gezien heb.
+Het leveren van kwaliteit is één van de kernwaarden van De Interim Ecoloog. Met vijftien jaar werkervaring in veldwerk, rapportage en projectleiding is er weinig wat ik niet al eens gezien heb.
 {{< /punt >}}
 {{< punt titel="Veelzijdigheid" >}}
-Ik heb voor een milieuadviesbureau gewerkt, maar heb via detacheringen ook de 'andere kant' ervaren, vanuit een gemeente of Omgevingsdienst (WABO-vergunningen en bestemmingsplannen). Daardoor heb ik een brede blik en dat vertaalt zich in completere adviezen in de rapportages.
+Ik heb voor een milieuadviesbureau gewerkt, maar heb via detacheringen ook de 'andere kant' ervaren, vanuit een gemeente of Omgevingsdienst (OPA, BOPA). Daardoor heb ik een brede blik en dat vertaalt zich in completere adviezen in de rapportages.
 {{< /punt >}}
 {{< punt titel="Snelheid" >}}
 Bij De Interim Ecoloog kunt u rekenen op vlotte communicatie en een korte doorlooptijd voor uw project.

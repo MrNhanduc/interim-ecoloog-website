@@ -32,6 +32,11 @@
   </div>
   <input type="file" id="vt-kiezer" accept="application/pdf,.pdf" hidden>
 
+  {{- /* De uitslag staat bewust in twee stukken, met het formulier ertussen:
+         eerst het aantal en het bedrag, dan meteen de offerteknop, en pas
+         daarna de onderbouwing. Bij een groot project zijn dat vijftig
+         tabelregels, en die hoeft een opdrachtgever niet door te scrollen
+         voordat hij iets kan aanvragen. */ -}}
   <div id="vt-uitkomst" aria-live="polite"></div>
 
   {{- /* Het offerteformulier verschijnt pas als er een uitkomst is. De
@@ -87,6 +92,8 @@
 
     <button type="submit">Offerte aanvragen</button>
   </form>
+
+  <div id="vt-details"></div>
 </div>
 
 <script type="module" src="{{ $pagina.RelPermalink }}"></script>

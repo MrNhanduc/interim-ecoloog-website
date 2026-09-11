@@ -15,13 +15,12 @@ import {
 const vak = document.getElementById('vt-vak');
 const kiezer = document.getElementById('vt-kiezer');
 const uitkomst = document.getElementById('vt-uitkomst');
+const details = document.getElementById('vt-details');
 const formulier = document.getElementById('vt-formulier');
 if (!vak) throw new Error('Voortoetsteller: het sleepvak ontbreekt op deze pagina.');
 
 const PDFJS_SRC = vak.dataset.pdfjs;
 const WORKER_SRC = vak.dataset.worker;
-
-let laatste = null;   // de laatste uitkomst, voor het offerteformulier
 
 // --- pdf.js pas ophalen als er echt een bestand komt ---------------------
 
@@ -166,11 +165,13 @@ function ontsnap(t) {
 
 function bezig(tekst) {
   uitkomst.innerHTML = '<p class="vt-bezig" role="status">' + ontsnap(tekst) + '</p>';
+  if (details) details.innerHTML = '';
 }
 
 function fout(tekst) {
   uitkomst.innerHTML = '<div class="vt-fout" role="alert"><strong>Dat lukte niet.</strong> ' +
     ontsnap(tekst) + '</div>';
+  if (details) details.innerHTML = '';
   if (formulier) formulier.hidden = true;
 }
 
@@ -182,13 +183,15 @@ function toon(d) {
     : 'Berekend op het aantal te behandelen habitattypen en leefgebieden in deze ' +
       'berekening. Aan deze indicatie kunnen geen rechten worden ontleend.';
 
-  let h = '<div class="vt-uitslag">' +
+  uitkomst.innerHTML = '<div class="vt-uitslag">' +
     '<div class="vt-cijfer"><span class="vt-cijfer__label">Te behandelen habitattypen en leefgebieden</span>' +
     '<span class="vt-cijfer__getal">' + d.aantal + '</span></div>' +
     '<div class="vt-cijfer"><span class="vt-cijfer__label">Indicatie voortoets</span>' +
     '<span class="vt-cijfer__getal">' + bedrag + '</span></div>' +
     '<p class="vt-voorbehoud">' + voorbehoud + '</p></div>';
 
+  // Alles hieronder is de onderbouwing; die staat onder het offerteformulier.
+  let h = '<h2 class="vt-details__kop">Waar dat aantal vandaan komt</h2>';
   h += '<p class="vt-meta">' + ontsnap(d.project) +
     (d.opdrachtgever ? ' &middot; ' + ontsnap(d.opdrachtgever) : '') +
     '<br>rekenjaar ' + ontsnap(d.rekenjaar) + ' &middot; AERIUS ' + ontsnap(d.aerius) +
@@ -223,7 +226,7 @@ function toon(d) {
       ontsnap(d.vervallen.join(', ')) + '</div>';
   }
 
-  uitkomst.innerHTML = h;
+  if (details) details.innerHTML = h;
   vulFormulier(d);
 }
 
@@ -252,11 +255,8 @@ function vulFormulier(d) {
 async function behandel(bestand) {
   if (!bestand) return;
   if (formulier) formulier.hidden = true;
-  laatste = null;
   try {
-    const d = await verwerk(bestand);
-    laatste = d;
-    toon(d);
+    toon(await verwerk(bestand));
   } catch (e) {
     fout(e && e.message ? e.message : String(e));
   }
