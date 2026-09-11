@@ -10,19 +10,15 @@ description: "Bereken direct wat een voortoets stikstof kost: sleep uw AERIUS-be
 weight: 0
 ---
 
-Heeft uw project een berekende toename van stikstofdepositie op een Natura 2000-gebied, dan is een voortoets nodig. Wat die kost, hangt af van één ding: hoeveel habitattypen en leefgebieden er beoordeeld moeten worden. Dat aantal staat niet in uw AERIUS-rapport, maar het valt er wel uit af te leiden.
-
-Deze teller doet dat. Sleep uw AERIUS-projectberekening hieronder in het vak en u ziet binnen een minuut om welke habitattypen het gaat, in welke gebieden, en wat de voortoets kost.
+Heeft uw project een berekende toename van stikstofdepositie op een Natura 2000-gebied, dan is een voortoets nodig. De kosten hangen vooral af van het aantal habitattypen en leefgebieden per Natura 2000-gebied die beoordeeld moeten worden. Sleep uw AERIUS-projectberekening hieronder in het vak en de tool laat u binnen een minuut zien om welke habitattypen het gaat, in welke gebieden, en wat de voortoets kost. Let op dat aanvullende advisering en kosten van toepassing kunnen zijn als er sprake is van permanente deposities, saldering of andere bijzonderheden.
 
 {{< voortoetsteller >}}
 
-## Wat de teller doet
+## Wat er gebeurt
 
-Uw AERIUS-PDF bevat als bijlage de rekentaak zelf — hetzelfde bestand dat Calculator inleest bij het importeren van een PDF. Daar staan alle rekenpunten in met hun projectbijdrage. Welke habitattypen op die punten liggen staat er níet in; dat komt uit de open data van AERIUS.
+De tool vergelijkt alle rekenpunten en de projectbijdrages met de open data van AERIUS, om dezelfde output te genereren die u kunt zien als u de berekening in AERIUS Calculator inlaad. Het resultaat is een overzicht van de hoogste projectdeposities per habitattype of leefgebied. Ligt die boven of dicht onder de kritische depositiewaarde, dan moet dat type behandeld worden en telt het mee.
 
-De teller combineert die twee. Per Natura 2000-gebied en per habitattype wordt gekeken naar de hexagonen waarop een toename is berekend, en daaruit wordt het hexagoon met de hoogste achtergronddepositie genomen. Ligt die boven of dicht onder de kritische depositiewaarde, dan moet dat type behandeld worden en telt het mee.
-
-Een paar keuzes die daarin zitten:
+Daarbij worden de volgende keuzes gemaakt:
 
 - Leefgebieden tellen even zwaar als habitattypen. De beoordeling is niet minder werk.
 - Hetzelfde type in twee gebieden telt als twee eenheden, want het zijn twee beoordelingen.
@@ -37,8 +33,8 @@ Pas als u zelf op *Offerte aanvragen* klikt, wordt er iets verstuurd — en dan 
 
 ## Waar u op moet letten
 
-De teller is geijkt op **AERIUS 2025.3** en gecontroleerd op twee volledig uitgewerkte projecten. Rekent u met een andere versie, dan krijgt u een waarschuwing te zien: hexagoonnummers en habitatkaarten verschillen per AERIUS-release.
+De teller is geijkt op **AERIUS 2025.3**. Rekent u met een andere versie, dan krijgt u een waarschuwing te zien: hexagoonnummers en habitatkaarten verschillen per AERIUS-release.
 
-Het bedrag is een indicatie, geen offerte. Het is berekend op het aantal te behandelen typen en houdt geen rekening met wat uw project verder eigen maakt — een ingewikkelde saldering, een krappe planning, of een gebied waar de gegevens vragen oproepen. Voor dat gesprek is de offerteknop er.
+Het bedrag is een indicatie en geen offerte. Het is berekend op het aantal te behandelen typen en houdt geen rekening met wat uw project verder eigen maakt — intern of extern salderen, een krappe planning, of een gebied waar de gegevens vragen oproepen. Als u via het formulier een offerte opvraagt, kunt u uw project nader toelichten.
 
-Loopt u ergens tegenaan, of geeft de teller iets terug dat u niet verwacht? [Laat het me weten](../contact/) — juist die gevallen maken de teller beter.
+Loopt u ergens tegenaan, of geeft de tool iets terug dat u niet verwacht? [Laat het me gerust weten](../contact/).
