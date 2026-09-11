@@ -10,7 +10,7 @@ description: "Bereken direct wat een voortoets stikstof kost: sleep uw AERIUS-be
 weight: 0
 ---
 
-Heeft uw project een berekende toename van stikstofdepositie op een Natura 2000-gebied, dan is een voortoets nodig. De kosten hangen vooral af van het aantal habitattypen en leefgebieden per Natura 2000-gebied die beoordeeld moeten worden. Sleep uw AERIUS-projectberekening hieronder in het vak en de tool laat u binnen een minuut zien om welke habitattypen het gaat, in welke gebieden, en wat de voortoets kost. Let op dat aanvullende advisering en kosten van toepassing kunnen zijn als er sprake is van permanente deposities, saldering of andere bijzonderheden.
+Heeft uw project een berekende toename van stikstofdepositie op een Natura 2000-gebied, dan is een voortoets nodig. De kosten hangen vooral af van het aantal habitattypen en leefgebieden per Natura 2000-gebied die beoordeeld moeten worden. Sleep uw AERIUS-projectberekening hieronder in het vak en de tool laat u binnen een minuut zien om welke habitattypen het gaat, in welke gebieden, wat de voortoets kost en hoe lang die duurt. Let op dat aanvullende advisering en kosten van toepassing kunnen zijn als er sprake is van permanente deposities, saldering of andere bijzonderheden.
 
 {{< voortoetsteller >}}
 
@@ -36,5 +36,7 @@ Pas als u zelf op *Offerte aanvragen* klikt, wordt er iets verstuurd — en dan 
 De teller is geijkt op **AERIUS 2025.3**. Rekent u met een andere versie, dan krijgt u een waarschuwing te zien: hexagoonnummers en habitatkaarten verschillen per AERIUS-release.
 
 Het bedrag is een indicatie en geen offerte. Het is berekend op het aantal te behandelen typen en houdt geen rekening met wat uw project verder eigen maakt — intern of extern salderen, een krappe planning, of een gebied waar de gegevens vragen oproepen. Als u via het formulier een offerte opvraagt, kunt u uw project nader toelichten.
+
+Dat geldt ook voor de levertijd. Tot en met dertig te behandelen typen reken ik op vier weken; daarboven op vier tot acht weken, omdat het aantal beoordelingen dan sterk oploopt. Die termijn gaat in op het moment dat u opdracht geeft. Heeft u een harde datum te halen, meld dat dan bij uw aanvraag — vaak is er meer mogelijk dan de tabel laat zien.
 
 Loopt u ergens tegenaan, of geeft de tool iets terug dat u niet verwacht? [Laat het me gerust weten](../contact/).

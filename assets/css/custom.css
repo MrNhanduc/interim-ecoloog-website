@@ -681,6 +681,12 @@ body > header > nav,
   letter-spacing: -0.02em;
 }
 
+/* De levertijd is een woord en geen getal: op dezelfde grootte als het bedrag
+   zou hij de prijs wegdrukken en op een smal scherm afbreken. */
+.vt-cijfer--klein .vt-cijfer__getal {
+  font-size: clamp(1.5rem, 3.4vw, 1.9rem);
+}
+
 .vt-voorbehoud {
   margin: 0;
   font-size: 0.85rem;

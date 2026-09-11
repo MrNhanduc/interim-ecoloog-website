@@ -9,7 +9,8 @@
 import { zipLeden, zipLees } from './zip.js';
 import {
   ONDERSTEUNDE_VERSIE, beschikbareJaren, depositiesVoor, euro, groepeer,
-  habitatsVoor, isMaatwerk, leesGml, metToename, prijs, tel, verwerkZoekgebieden,
+  habitatsVoor, isMaatwerk, leesGml, levertijd, metToename, prijs, tel,
+  verwerkZoekgebieden,
 } from './kern.js';
 
 const vak = document.getElementById('vt-vak');
@@ -210,17 +211,21 @@ function toon(d) {
   if (d.geenToename) return toonGeenToename(d);
 
   const bedrag = (d.maatwerk ? 'vanaf ' : '') + '&euro; ' + euro(d.prijs);
-  const voorbehoud = d.maatwerk
+  const termijn = levertijd(d.aantal);
+  const voorbehoud = (d.maatwerk
     ? 'Bij een project van deze omvang stel ik een maatwerkofferte op; het genoemde ' +
       'bedrag is de ondergrens. Aan deze indicatie kunnen geen rechten worden ontleend.'
     : 'Berekend op het aantal te behandelen habitattypen en leefgebieden in deze ' +
-      'berekening. Aan deze indicatie kunnen geen rechten worden ontleend.';
+      'berekening. Aan deze indicatie kunnen geen rechten worden ontleend.') +
+    ' De levertijd geldt vanaf opdrachtverstrekking.';
 
   uitkomst.innerHTML = '<div class="vt-uitslag">' +
     '<div class="vt-cijfer"><span class="vt-cijfer__label">Te behandelen habitattypen en leefgebieden</span>' +
     '<span class="vt-cijfer__getal">' + d.aantal + '</span></div>' +
     '<div class="vt-cijfer"><span class="vt-cijfer__label">Indicatie voortoets</span>' +
     '<span class="vt-cijfer__getal">' + bedrag + '</span></div>' +
+    '<div class="vt-cijfer vt-cijfer--klein"><span class="vt-cijfer__label">Verwachte levertijd</span>' +
+    '<span class="vt-cijfer__getal">' + termijn + '</span></div>' +
     '<p class="vt-voorbehoud">' + voorbehoud + '</p></div>';
 
   // Alles hieronder is de onderbouwing; die staat onder het offerteformulier.
@@ -275,6 +280,7 @@ function vulFormulier(d) {
   zet('aerius', d.aerius);
   zet('eenheden', d.aantal);
   zet('indicatie', (d.maatwerk ? 'vanaf ' : '') + 'EUR ' + euro(d.prijs));
+  zet('levertijd', levertijd(d.aantal));
   zet('gebieden', d.gebieden.join(', '));
   zet('overzicht', d.groepen.map((g) =>
     (g.teltMee ? '' : '(telt niet mee) ') + g.gebiedNaam + ' | ' + g.habitatCode + ' ' +

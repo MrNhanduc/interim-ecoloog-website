@@ -235,3 +235,14 @@ export function isMaatwerk(aantal) {
 export function euro(bedrag) {
   return bedrag.toLocaleString('nl-NL');
 }
+
+// --- levertijd ----------------------------------------------------------
+// Tot en met dertig te behandelen typen is het werk te overzien en past het
+// binnen vier weken. Daarboven loopt het aantal beoordelingen zo op dat een
+// bandbreedte eerlijker is dan een vaste termijn.
+
+export const LEVERTIJD_GRENS = 30;
+
+export function levertijd(aantal) {
+  return aantal > LEVERTIJD_GRENS ? '4 tot 8 weken' : '4 weken';
+}

@@ -76,4 +76,4 @@ Komen we er samen niet uit, dan kunt u een klacht indienen bij de Autoriteit Per
 
 Verandert er iets aan de site of aan de manier waarop ik met gegevens omga, dan pas ik deze verklaring aan. Onderaan staat wanneer dat voor het laatst gebeurde.
 
-Laatst bijgewerkt op 8 september 2026.
+Laatst bijgewerkt op 11 september 2026.
