@@ -13,6 +13,7 @@
   alleen de pagina leest.
 */ -}}
 {{- $pagina := resources.Get "js/voortoets/pagina.js" | js.Build (dict "minify" true "target" "es2017") -}}
+{{- $herkomst := resources.Get "js/voortoets-herkomst.js" | js.Build (dict "minify" true "target" "es2017") -}}
 {{- $pdfjs := resources.Get "js/voortoets/pdf.min.js" -}}
 {{- $worker := resources.Get "js/voortoets/pdf.worker.min.js" -}}
 
@@ -98,3 +99,12 @@
 </div>
 
 <script type="module" src="{{ $pagina.RelPermalink }}"></script>
+
+{{- /*
+  Hangt de herkomst van de bezoeker (advertentie, zoekmachine, direct) als
+  verborgen velden aan het formulier hierboven, zodat die informatie in de
+  Formspree-mail meekomt. Slaat niets op het apparaat van de bezoeker op en
+  raakt de rekenlogica niet aan; de volgorde ten opzichte van pagina.js
+  maakt daarom niet uit.
+*/ -}}
+<script src="{{ $herkomst.RelPermalink }}" defer></script>
