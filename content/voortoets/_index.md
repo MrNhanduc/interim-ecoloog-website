@@ -6,7 +6,7 @@ kopfoto_alt: "Meidoorn in bes"
 kopfoto_positie: "62% 50%"
 kopregel: "Ontdek binnen een minuut wat een ecologische beoordeling stikstof voor uw project kost."
 title: "Voortoets"
-description: "Bereken direct wat een voortoets stikstof kost: sleep uw AERIUS-berekening in de teller"
+description: "Bereken direct wat een voortoets stikstof kost. Sleep uw AERIUS-berekening in de teller en zie binnen een minuut welke habitattypen meetellen en wat dat kost."
 weight: 0
 ---
 
