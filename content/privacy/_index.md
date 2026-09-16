@@ -28,6 +28,8 @@ Voor vragen over uw gegevens kunt u hetzelfde adres of nummer gebruiken. Er is g
 
 **Als u belt, appt of mailt** verwerk ik de gegevens die u daarbij zelf verstrekt, voor hetzelfde doel.
 
+**Als u via een advertentie binnenkomt** staat er in het webadres waarmee u hier terechtkomt informatie over die advertentie: om welke campagne en welk zoekwoord het ging, en een uniek kliknummer dat Google eraan meegeeft. Vult u daarna het offerteformulier in, dan gaan die gegevens mee in het bericht dat ik ontvang. Ik gebruik ze om te zien welke advertenties daadwerkelijk tot een aanvraag leiden — nergens anders voor. Er komt geen cookie aan te pas en er wordt niets op uw apparaat opgeslagen: die gegevens staan in het webadres van de pagina die u op dat moment open heeft, en verdwijnen zodra u die sluit.
+
 **Als u alleen de site bekijkt** legt de host (GitHub Pages) in zijn serverlogboeken vast welke pagina is opgevraagd, wanneer, en vanaf welk IP-adres. Dat gebeurt bij vrijwel elke website en is nodig om de site te kunnen leveren en te beschermen tegen misbruik. Ik kan die logboeken zelf niet inzien en gebruik ze dus ook niet.
 
 ## Op welke grondslag
@@ -76,4 +78,4 @@ Komen we er samen niet uit, dan kunt u een klacht indienen bij de Autoriteit Per
 
 Verandert er iets aan de site of aan de manier waarop ik met gegevens omga, dan pas ik deze verklaring aan. Onderaan staat wanneer dat voor het laatst gebeurde.
 
-Laatst bijgewerkt op 11 september 2026.
+Laatst bijgewerkt op 16 september 2026.

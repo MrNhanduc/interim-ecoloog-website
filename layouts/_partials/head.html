@@ -84,18 +84,24 @@
     ></script>
   {{ end }}
   {{/* Metadata */}}
-  <meta
-    name="description"
-    content="{{ with .Description }}
-      {{ . }}
-    {{ else }}
-      {{ if .IsPage }}
-        {{ .Summary }}
-      {{ else }}
-        {{ with .Site.Params.description }}{{ . }}{{ end }}
-      {{ end }}
-    {{ end }}"
-  />
+  {{/*
+    Eigen wijziging: de omschrijving wordt eerst in een variabele gezet en
+    daarna pas afgedrukt. In de themaversie stond de keuzelogica binnen het
+    content-attribuut zelf, waardoor er letterlijke regeleindes en inspringing
+    in de meta-tag terechtkwamen. Zoekmachines halen die er zelf uit, maar in
+    de broncode oogt het slordig.
+  */}}
+  {{- $beschrijving := "" -}}
+  {{- with .Description -}}
+    {{- $beschrijving = . -}}
+  {{- else -}}
+    {{- if .IsPage -}}
+      {{- $beschrijving = .Summary -}}
+    {{- else -}}
+      {{- $beschrijving = .Site.Params.description | default "" -}}
+    {{- end -}}
+  {{- end -}}
+  <meta name="description" content="{{ $beschrijving | plainify | chomp }}" />
   {{ with union .Site.Params.keywords .Params.keywords -}}
     <meta name="keywords" content="{{ delimit . `, ` }}" />
   {{- end }}
