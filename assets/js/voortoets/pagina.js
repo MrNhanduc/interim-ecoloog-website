@@ -310,11 +310,83 @@ function vulFormulier(d) {
   formulier.hidden = false;
 }
 
+// --- offerteformulier op de achtergrond versturen -------------------------
+// Net als het contactformulier: de bezoeker blijft op deze site en belandt
+// niet op de pagina van Formspree (die eigen cookies en reCAPTCHA kan
+// gebruiken). Werkt fetch niet, dan verstuurt het formulier zichzelf op de
+// klassieke manier; een aanvraag mag nooit verloren gaan.
+
+const TELEFOON = '06 26 810 089';
+let formStatus = null;
+
+function statusVak() {
+  if (!formStatus && formulier) {
+    formStatus = document.createElement('div');
+    formStatus.id = 'vt-formulier-status';
+    formStatus.setAttribute('role', 'status');
+    formStatus.setAttribute('aria-live', 'polite');
+    formStatus.tabIndex = -1;
+    formStatus.hidden = true;
+    formulier.parentNode.insertBefore(formStatus, formulier);
+  }
+  return formStatus;
+}
+
+function toonFormMelding(soort, kop, tekst) {
+  const vakje = statusVak();
+  vakje.className = 'form-melding form-melding--' + soort;
+  vakje.innerHTML = '<strong>' + kop + '</strong><br>' + tekst;
+  vakje.hidden = false;
+  vakje.focus();
+}
+
+if (formulier && window.fetch && window.FormData) {
+  const knop = formulier.querySelector('button[type="submit"]');
+  const knopTekst = knop ? knop.textContent : '';
+  const knopHerstellen = () => {
+    if (!knop) return;
+    knop.disabled = false;
+    knop.textContent = knopTekst;
+  };
+
+  formulier.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusVak().hidden = true;
+    if (knop) { knop.disabled = true; knop.textContent = 'Bezig met versturen…'; }
+    try {
+      const antwoord = await fetch(formulier.action, {
+        method: 'POST',
+        body: new FormData(formulier),
+        headers: { Accept: 'application/json' },
+      });
+      const gegevens = await antwoord.json().catch(() => ({}));
+      if (antwoord.ok) {
+        formulier.hidden = true;
+        knopHerstellen();
+        toonFormMelding('goed', 'Bedankt voor uw aanvraag.',
+          'Ik neem zo snel mogelijk contact met u op.');
+        return;
+      }
+      const fouten = (gegevens.errors || []).map((f) => f.message).join(' ');
+      knopHerstellen();
+      toonFormMelding('fout', 'Het versturen is niet gelukt.',
+        ontsnap(fouten ? fouten + ' ' : '') + 'Probeert u het nog eens, of bel / app ' +
+        TELEFOON + '. Uw gegevens staan nog in het formulier.');
+    } catch (err) {
+      knopHerstellen();
+      toonFormMelding('fout', 'Het versturen is niet gelukt.',
+        'Controleer uw internetverbinding en probeer het nog eens, of bel / app ' +
+        TELEFOON + '. Uw gegevens staan nog in het formulier.');
+    }
+  });
+}
+
 // --- sleepvak ------------------------------------------------------------
 
 async function behandel(bestand) {
   if (!bestand) return;
   if (formulier) formulier.hidden = true;
+  if (formStatus) formStatus.hidden = true;
   try {
     toon(await verwerk(bestand));
   } catch (e) {

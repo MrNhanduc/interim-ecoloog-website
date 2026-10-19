@@ -40,17 +40,21 @@ Beantwoordt u een offerteaanvraag of loopt er een opdracht, dan verwerk ik uw ge
 
 Ik verkoop uw gegevens niet, gebruik ze niet voor reclame en verstrek ze niet aan anderen, behalve aan de partijen die nodig zijn om de site en de mail te laten werken:
 
-- **Formspree** verwerkt het contactformulier en stuurt de inhoud door naar mijn mailbox. Zonder zo'n dienst kan een statische website geen formulier verwerken.
+- **Formspree** (Formspree, Inc.) verwerkt het contactformulier en het offerteformulier van de voortoetsteller, en stuurt de inhoud door naar mijn mailbox. Daarbij ziet Formspree wat u invult en technische gegevens zoals uw IP-adres. Zonder zo'n dienst kan een statische website geen formulier verwerken. Ik heb de archieffunctie van Formspree uitgezet: uw bericht wordt alleen doorgestuurd en blijft niet in mijn Formspree-account bewaard.
 - **GitHub** host de website en verwerkt daarbij de serverlogboeken die hierboven zijn genoemd.
 - **Mijn e-mailprovider**, waar uw bericht binnenkomt en bewaard blijft.
 
-Met deze partijen zijn verwerkersafspraken van toepassing. Verder deel ik gegevens alleen als de wet mij daartoe verplicht.
+Met deze partijen zijn verwerkersafspraken van toepassing; met Formspree is daarvoor een ondertekende verwerkersovereenkomst gesloten. Verder deel ik gegevens alleen als de wet mij daartoe verplicht.
+
+## Gegevens buiten de Europese Unie
+
+Formspree en GitHub zijn Amerikaanse bedrijven, dus uw gegevens kunnen in de Verenigde Staten worden verwerkt. Voor Formspree is dat geregeld met de standaardcontractbepalingen van de Europese Commissie, die deel uitmaken van de verwerkersovereenkomst. GitHub is aangesloten bij het EU-VS Data Privacy Framework. Beide waarborgen zijn bedoeld om uw gegevens daar hetzelfde beschermingsniveau te geven als in de EU.
 
 ## Cookies, statistieken en externe diensten
 
 Deze site plaatst **geen cookies** en slaat niets op in uw browser. Er is geen bezoekersteller, geen Google Analytics en geen andere vorm van meting: ik heb geen belangstelling voor gegevens over uw bezoek. Er staan ook geen ingesloten kaarten, video's of sociale-mediaknoppen op de site, en zelfs de lettertypen worden vanaf deze site zelf geleverd in plaats van bij een externe partij opgehaald. Daarom ziet u hier geen cookiemelding: er valt niets toe te staan of te weigeren.
 
-De enige uitzondering is het contactformulier. Op het moment dat u op *Bericht versturen* klikt — en pas dan — gaan de door u ingevulde gegevens naar Formspree. Vult u het formulier niet in, dan verlaat er niets van u deze site.
+De enige uitzondering zijn de formulieren. Op het moment dat u op *Bericht versturen* of *Offerte aanvragen* klikt — en pas dan — gaan de door u ingevulde gegevens naar Formspree. Dat gebeurt op de achtergrond: u blijft op deze site en er wordt geen pagina van Formspree geopend. Vult u geen formulier in, dan verlaat er niets van u deze site.
 
 ## De voortoetsteller
 
@@ -62,7 +66,7 @@ Klikt u daarna op *Offerte aanvragen*, dan verstuurt u wat op dat moment op uw s
 
 ## Hoe lang ik uw gegevens bewaar
 
-Berichten die tot niets leiden bewaar ik één jaar en verwijder ik daarna. Leidt uw bericht tot een opdracht, dan hoort de correspondentie bij het dossier; de administratie daarvan moet ik van de Belastingdienst zeven jaar bewaren.
+Uw bericht komt alleen in mijn mailbox terecht; bij Formspree blijft geen kopie in mijn account staan. Berichten die tot niets leiden bewaar ik één jaar en verwijder ik daarna. Leidt uw bericht tot een opdracht, dan hoort de correspondentie bij het dossier; de administratie daarvan moet ik van de Belastingdienst zeven jaar bewaren.
 
 ## Beveiliging
 
@@ -78,4 +82,4 @@ Komen we er samen niet uit, dan kunt u een klacht indienen bij de Autoriteit Per
 
 Verandert er iets aan de site of aan de manier waarop ik met gegevens omga, dan pas ik deze verklaring aan. Onderaan staat wanneer dat voor het laatst gebeurde.
 
-Laatst bijgewerkt op 16 september 2026.
+Laatst bijgewerkt op 19 oktober 2026.
