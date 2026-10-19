@@ -9,7 +9,7 @@
 import { zipLeden, zipLees } from './zip.js';
 import {
   ONDERSTEUNDE_VERSIE, beschikbareJaren, depositiesVoor, euro, groepeer,
-  habitatsVoor, isMaatwerk, leesGml, levertijd, metToename, prijs, tel,
+  habitatsVoor, hoofdversie, isMaatwerk, leesGml, levertijd, metToename, prijs, tel,
   verwerkZoekgebieden,
 } from './kern.js';
 
@@ -90,11 +90,27 @@ async function verwerk(bestand) {
   const gml = await gmlUitPdf(bestand);
   const taak = leesGml(gml.tekst);
 
-  if (taak.aeriusVersie && taak.aeriusVersie.indexOf(ONDERSTEUNDE_VERSIE) !== 0) {
+  // Een berekening uit een oudere versie rekent de teller gewoon door: de
+  // verschillen zijn klein en de uitkomst geeft een goede indruk. Wel moet de
+  // klant weten dat de berekening voor de aanvraag geactualiseerd moet worden.
+  const versie = hoofdversie(taak.aeriusVersie);
+  const huidig = parseInt(ONDERSTEUNDE_VERSIE, 10);
+  let verouderd = false;
+  if (versie !== null && versie < huidig) {
+    verouderd = true;
     meldingen.push(
-      'Deze berekening is gemaakt met AERIUS ' + taak.aeriusVersie + '. De teller ' +
-      'is geijkt op ' + ONDERSTEUNDE_VERSIE + '; hexagoonnummers en habitatkaarten ' +
-      'verschillen per versie. De uitkomst kan daardoor afwijken.');
+      'Deze berekening is gemaakt met AERIUS ' + taak.aeriusVersie.split('_')[0] +
+      '. Sinds 6 oktober 2026 ' +
+      'is voor een vergunningaanvraag een berekening met AERIUS ' + huidig + ' verplicht, ' +
+      'dus de berekening moet nog geactualiseerd worden. De teller rekent al met de ' +
+      'habitatkaarten en depositiecijfers van AERIUS ' + huidig + '. De verschillen zijn ' +
+      'meestal klein, dus deze uitkomst geeft al een goede indruk.');
+  } else if (versie !== null && versie > huidig) {
+    meldingen.push(
+      'Deze berekening is gemaakt met AERIUS ' + taak.aeriusVersie.split('_')[0] +
+      ', een nieuwere ' +
+      'versie dan ' + huidig + ' waarop de teller is ingesteld. De uitkomst kan daardoor ' +
+      'iets afwijken.');
   }
 
   const toename = metToename(taak);
@@ -125,9 +141,9 @@ async function verwerk(bestand) {
 
   const habIds = Array.from(new Set(habitats.map((r) => parseInt(r.receptor_id, 10))))
     .sort((a, b) => a - b);
-  bezig('Achtergronddepositie ' + jaar + ' ophalen…');
+  bezig('Actuele depositie ' + jaar + ' ophalen…');
   const achtergrond = await depositiesVoor(habIds, jaar, (gedaan, totaal) => {
-    bezig('Achtergronddepositie ophalen… ' + gedaan + ' van ' + totaal);
+    bezig('Actuele depositie ophalen… ' + gedaan + ' van ' + totaal);
   });
 
   const regels = [];
@@ -155,6 +171,7 @@ async function verwerk(bestand) {
     opdrachtgever: taak.opdrachtgever,
     rekenjaar: taak.rekenjaar,
     aerius: taak.aeriusVersie,
+    verouderd,
     jaar,
     aantal,
     prijs: prijs(aantal),
@@ -228,22 +245,24 @@ function toon(d) {
     '<span class="vt-cijfer__getal">' + termijn + '</span></div>' +
     '<p class="vt-voorbehoud">' + voorbehoud + '</p></div>';
 
+  // Meldingen (zoals een berekening uit een oudere AERIUS-versie) staan boven
+  // het offerteformulier, waar de klant ze ziet voordat hij iets aanvraagt.
+  for (const m of d.meldingen) {
+    uitkomst.innerHTML += '<div class="vt-melding">' + ontsnap(m) + '</div>';
+  }
+
   // Alles hieronder is de onderbouwing; die staat onder het offerteformulier.
   let h = '<h2 class="vt-details__kop">Waar dat aantal vandaan komt</h2>';
   h += '<p class="vt-meta">' + ontsnap(d.project) +
     (d.opdrachtgever ? ' &middot; ' + ontsnap(d.opdrachtgever) : '') +
     '<br>rekenjaar ' + ontsnap(d.rekenjaar) + ' &middot; AERIUS ' + ontsnap(d.aerius) +
-    ' &middot; achtergronddepositie ' + d.jaar +
+    ' &middot; actuele depositie ' + d.jaar +
     '<br>' + d.hexagonen + ' hexagonen met een berekende toename' +
     (d.gebieden.length ? '<br>' + ontsnap(d.gebieden.join(', ')) : '') + '</p>';
 
-  for (const m of d.meldingen) {
-    h += '<div class="vt-melding">' + ontsnap(m) + '</div>';
-  }
-
   h += '<div class="vt-tabelhouder"><table class="vt-tabel">' +
     '<thead><tr><th>gebied</th><th>code</th><th>omschrijving</th>' +
-    '<th class="vt-num">KDW</th><th class="vt-num">achtergrond</th>' +
+    '<th class="vt-num">KDW</th><th class="vt-num">actueel</th>' +
     '<th class="vt-num">verschil</th><th>status</th></tr></thead><tbody>';
   for (const g of d.groepen) {
     h += '<tr' + (g.teltMee ? '' : ' class="vt-uit"') + '>' +
@@ -257,7 +276,9 @@ function toon(d) {
   }
   h += '</tbody></table></div>';
   h += '<p class="vt-legenda">Waarden in mol N/ha/j. Grijze regels tellen niet mee: daar ligt ' +
-    'de achtergronddepositie ruim onder de kritische depositiewaarde.</p>';
+    'de actuele depositie ruim onder de kritische depositiewaarde. Kolom actueel: ' +
+    'de hoogste actuele depositie (voorheen achtergronddepositie) op een hexagoon ' +
+    'met toename.</p>';
 
   if (d.vervallen.length) {
     h += '<div class="vt-melding">Zoekgebied samengevoegd met het hoofdtype: ' +
@@ -277,14 +298,14 @@ function vulFormulier(d) {
   zet('project', d.project);
   zet('opdrachtgever', d.opdrachtgever);
   zet('rekenjaar', d.rekenjaar);
-  zet('aerius', d.aerius);
+  zet('aerius', d.aerius + (d.verouderd ? ' (oudere versie, actualisatie nodig)' : ''));
   zet('eenheden', d.aantal);
   zet('indicatie', (d.maatwerk ? 'vanaf ' : '') + 'EUR ' + euro(d.prijs));
   zet('levertijd', levertijd(d.aantal));
   zet('gebieden', d.gebieden.join(', '));
   zet('overzicht', d.groepen.map((g) =>
     (g.teltMee ? '' : '(telt niet mee) ') + g.gebiedNaam + ' | ' + g.habitatCode + ' ' +
-    g.habitatNaam + ' | achtergrond ' + Math.round(g.hoogsteAchtergrond) +
+    g.habitatNaam + ' | actueel ' + Math.round(g.hoogsteAchtergrond) +
     ' vs KDW ' + Math.round(g.kdw)).join('\n'));
   formulier.hidden = false;
 }

@@ -27,13 +27,13 @@ Daarbij worden de volgende keuzes gemaakt:
 
 ## Uw bestand blijft van u
 
-De berekening draait volledig in uw eigen browser. De PDF wordt niet geüpload en komt nergens op een server terecht. Het enige verkeer naar buiten is een vraag aan de open data van AERIUS: welke habitattypen liggen op deze hexagonen, en wat is daar de achtergronddepositie. Daarbij gaan alleen hexagoonnummers de deur uit, geen projectgegevens.
+De berekening draait volledig in uw eigen browser. De PDF wordt niet geüpload en komt nergens op een server terecht. Het enige verkeer naar buiten is een vraag aan de open data van AERIUS: welke habitattypen liggen op deze hexagonen, en wat is daar de actuele depositie. Daarbij gaan alleen hexagoonnummers de deur uit, geen projectgegevens.
 
 Pas als u zelf op *Offerte aanvragen* klikt, wordt er iets verstuurd — en dan alleen wat u op dat moment op uw scherm ziet staan.
 
 ## Waar u op moet letten
 
-De teller is geijkt op **AERIUS 2025.3**. Rekent u met een andere versie, dan krijgt u een waarschuwing te zien: hexagoonnummers en habitatkaarten verschillen per AERIUS-release.
+De teller rekent met de habitatkaarten, kritische depositiewaarden en actuele depositie van **AERIUS 2026**, de versie die sinds 6 oktober 2026 verplicht is bij een vergunningaanvraag. Heeft u nog een berekening uit een oudere versie, dan rekent de teller die gewoon door en ziet u een melding dat de berekening geactualiseerd moet worden. De verschillen zijn meestal klein, dus de uitkomst geeft dan al een goede indruk.
 
 Het bedrag is een indicatie en geen offerte. Het is berekend op het aantal te behandelen typen en houdt geen rekening met wat uw project verder eigen maakt — intern of extern salderen, een krappe planning, of een gebied waar de gegevens vragen oproepen. Als u via het formulier een offerte opvraagt, kunt u uw project nader toelichten.
 

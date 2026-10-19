@@ -13,7 +13,17 @@
 
 export const DREMPEL = 0.005;              // mol N/ha/j; AERIUS rondt af op 0,01
 export const MARGE_BIJNA_OVERBELAST = 70;  // mol N/ha/j onder de KDW
-export const ONDERSTEUNDE_VERSIE = '2025.3';
+// De open data van AERIUS volgt altijd de actuele release. Sinds 6 oktober
+// 2026 is dat 2026: habitatkaarten, KDW's en de actuele depositie (voorheen
+// "achtergronddepositie") komen daarmee uit AERIUS 2026. Gevalideerd tegen
+// een 2026.0.0-berekening (Velp, Componistenbuurt: 12 eenheden).
+export const ONDERSTEUNDE_VERSIE = '2026';
+
+// Hoofdversie (het jaartal) uit een versiestring als "2026.0.0_20260929_...".
+export function hoofdversie(versie) {
+  const m = String(versie || '').match(/^(\d{4})/);
+  return m ? parseInt(m[1], 10) : null;
+}
 
 const WFS = 'https://connect.aerius.nl/opendata/wfs';
 const KOPPELTABEL = 'base_geometries:hexagons_to_relevant_habitats';
