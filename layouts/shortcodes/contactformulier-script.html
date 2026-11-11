@@ -1,0 +1,11 @@
+{{- /*
+  Laadt het script dat het contactformulier op de achtergrond verstuurt.
+
+  Gebruik in de content, onder het formulier:  {{< contactformulier-script >}}
+
+  Het script zelf staat in assets/js/contactformulier.js. Het staat niet meer
+  in de pagina geschreven, omdat de Content-Security-Policy zulke scripts
+  niet uitvoert (zie layouts/_partials/head.html).
+*/ -}}
+{{- $js := resources.Get "js/contactformulier.js" | resources.Minify | resources.Fingerprint "sha256" -}}
+<script defer src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>

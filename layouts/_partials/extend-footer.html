@@ -20,26 +20,10 @@
 </p>
 
 {{- /*
-  Geeft de menubalk een achtergrond zodra je voorbij de kopband scrollt.
-  Zonder dit zweeft witte tekst over crème zodra de band uit beeld is.
-  Werkt de JavaScript niet, dan blijft de balk gewoon doorzichtig staan -
-  hij verdwijnt nooit, want dat regelt de CSS.
+  Het script dat de menubalk een achtergrond geeft zodra je voorbij de
+  kopband scrollt. De code staat in assets/js/menubalk.js; hier wordt hij
+  alleen geladen. Hij mag niet in de pagina zelf staan, want de
+  Content-Security-Policy (zie head.html) voert zulke scripts niet uit.
 */ -}}
-<script>
-  (function () {
-    var balk = document.querySelector('body > header');
-    if (!balk) return;
-    var grens = 80;
-    var bezig = false;
-    function bijwerken() {
-      balk.classList.toggle('is-geplakt', window.scrollY > grens);
-      bezig = false;
-    }
-    addEventListener('scroll', function () {
-      if (bezig) return;
-      bezig = true;
-      requestAnimationFrame(bijwerken);
-    }, { passive: true });
-    bijwerken();
-  })();
-</script>
+{{- $menubalk := resources.Get "js/menubalk.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script defer src="{{ $menubalk.RelPermalink }}" integrity="{{ $menubalk.Data.Integrity }}"></script>

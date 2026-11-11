@@ -49,7 +49,11 @@ async function gmlUitPdf(bestand) {
   const data = new Uint8Array(await bestand.arrayBuffer());
   let doc;
   try {
-    doc = await lib.getDocument({ data, password: '' }).promise;
+    // isEvalSupported: false is een beveiligingsmaatregel, geen snelheidskeuze.
+    // pdf.js onder versie 4.2.67 kan via een geprepareerd lettertype in een
+    // PDF eigen code laten uitvoeren (CVE-2024-4367); met deze instelling
+    // staat die route dicht. Laat hem staan, ook na een upgrade van pdf.js.
+    doc = await lib.getDocument({ data, password: '', isEvalSupported: false }).promise;
   } catch (e) {
     throw new Error('Dit bestand kan niet als PDF gelezen worden.');
   }

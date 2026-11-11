@@ -1,5 +1,42 @@
 <head>
   <meta charset="utf-8" />
+  {{/*
+    Eigen toevoeging: Content-Security-Policy. Deze regel vertelt de browser
+    welke bronnen deze site mag gebruiken; al het andere wordt geweigerd.
+    Mocht er ooit toch vreemde code op een pagina belanden, dan kan die
+    daardoor niets ophalen of wegsturen.
+
+    Dit staat als meta-tag in de pagina omdat GitHub Pages geen eigen
+    beveiligingsheaders kan meesturen.
+
+    Wat is toegestaan:
+    - scripts, lettertypen en afbeeldingen alleen van de eigen site;
+    - verbindingen alleen naar Formspree (formulieren) en de open data van
+      AERIUS (voortoetsteller);
+    - formulieren versturen alleen naar Formspree.
+
+    Gevolgen voor het onderhoud:
+    - Een script dat in een pagina of sjabloon geschreven staat (tussen
+      script-tags, zonder src) wordt NIET uitgevoerd. Zet nieuwe scripts
+      in assets/js/ en laad ze als bestand, zoals menubalk.js.
+    - Komt er een externe dienst bij (statistieken, een kaart, een video),
+      dan moet het adres daarvan hieronder worden toegevoegd, anders
+      blokkeert de browser hem zonder zichtbare melding. De melding staat
+      wel in de console van de browser.
+    - Blokken van het type application/ld+json zijn gegevens, geen script,
+      en vallen hier niet onder.
+    - De ene uitzondering in script-src ('unsafe-hashes' met een sha256-code)
+      is er voor het thema: de links in het mobiele menu sluiten het menu
+      met onclick="close_menu()". De code is de vingerafdruk van precies
+      die tekst, dus alleen die ene aanroep mag; andere onclick-teksten
+      blijven geblokkeerd. Verandert het thema die aanroep bij een update,
+      dan sluit het mobiele menu niet meer na een klik en moet de code
+      opnieuw berekend worden.
+  */}}
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-hashes' 'sha256-MAUk3Na/V69vxw36rxFKMwVWIIk43wSD43DrARgQHhs='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formspree.io https://connect.aerius.nl; worker-src 'self'; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'"
+  />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="{{ .Site.Params.defaultThemeColor | default "#ffffff" }}" />
   {{/* Title */}}
