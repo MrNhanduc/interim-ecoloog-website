@@ -1030,3 +1030,446 @@ body > header > nav,
   object-fit: cover;
   border-radius: 0;
 }
+
+
+/* =====================================================================
+   PROEF INDELING C (homepage)
+   Hogere heldfoto met de tekst onderin, de cijfers als kaart over de
+   fotorand, een inleiding in twee kolommen en dienstentegels. De kleuren zijn die van het schema Rivierklei.
+   Alles hieronder hoort bij deze proef; de regels erboven zijn
+   ongewijzigd, zodat terugdraaien neerkomt op dit blok weghalen.
+   ===================================================================== */
+
+/* ---------- held ---------- */
+
+.held {
+  min-height: min(92vh, 820px);
+}
+
+/* Van boven naar beneden in plaats van van links naar rechts: boven net
+   genoeg donker voor het menu, in het midden vrij voor de vogel, onderin
+   donker voor de tekst. */
+.held__sluier {
+  background: linear-gradient(180deg,
+    rgba(12, 37, 19, 0.55) 0%, rgba(12, 37, 19, 0.05) 30%,
+    rgba(12, 37, 19, 0.1) 45%, rgba(12, 37, 19, 0.88) 100%);
+}
+
+/* Onderin ruimte voor de cijferkaart, die 64 px over de foto heen valt. */
+.held__inhoud {
+  padding-bottom: calc(64px + 2.75rem);
+}
+
+.held .held__kop {
+  max-width: 16ch;
+  font-size: clamp(2.3rem, 5.6vw, 4.3rem);
+}
+
+.held__onder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 3rem;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.held__onder .held__knoppen {
+  margin-top: 0;
+}
+
+/* Op een telefoon past tekst niet naast de vogel. Daar staat de foto
+   bovenaan en loopt hij over in effen donkergroen, waar de tekst op staat. */
+@media (max-width: 767px) {
+  .held {
+    min-height: 0;
+  }
+  .held__foto {
+    inset: 0 0 auto;
+    height: 21rem;
+    object-position: 66% 50%;
+  }
+  .held__sluier {
+    background: linear-gradient(180deg,
+      rgba(12, 37, 19, 0.6) 0, rgba(12, 37, 19, 0.1) 5.5rem,
+      rgba(12, 37, 19, 0.1) 12rem, rgb(var(--color-primary-900)) 21rem);
+  }
+  .held__inhoud {
+    padding-top: 17.5rem;
+  }
+}
+
+/* ---------- cijfers als kaart over de fotorand ---------- */
+
+.cijfers--kaart {
+  position: relative;
+  z-index: 2;
+  margin-top: -64px;
+  margin-bottom: 0;
+  padding: 0;
+  gap: 0;
+  border: 0;
+  border-radius: 22px;
+  box-shadow: 0 22px 44px -28px rgba(var(--color-neutral-950), 0.55);
+}
+
+.cijfers--kaart .cijfer {
+  align-items: flex-start;
+  text-align: left;
+  padding: 1.4rem 1.6rem;
+}
+
+.cijfers--kaart .cijfer + .cijfer {
+  border-top: 1px solid rgb(var(--color-secondary-100));
+}
+
+@media (min-width: 640px) {
+  .cijfers--kaart {
+    padding: 0;
+  }
+  .cijfers--kaart .cijfer {
+    padding: 1.5rem 1.9rem;
+  }
+  .cijfers--kaart .cijfer + .cijfer {
+    border-top: 0;
+    border-left: 1px solid rgb(var(--color-secondary-100));
+  }
+}
+
+/* ---------- inleiding ---------- */
+
+/* De kop staat over de volle breedte, de tekst eronder in twee kolommen:
+   links de eerste alinea, iets groter, als opening; rechts de rest. Zo
+   blijft er naast of onder de kop geen leeg vlak over. Op smalle schermen
+   staat alles gewoon onder elkaar. */
+.inleiding {
+  margin-top: 3.5rem;
+}
+
+.prose .inleiding > .inleiding__kop {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+}
+
+.inleiding__tekst > p {
+  margin: 0 0 1rem;
+}
+
+.inleiding__tekst > p:last-child {
+  margin-bottom: 0;
+}
+
+.inleiding__tekst > p:first-child {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgb(var(--color-neutral-900));
+}
+
+@media (min-width: 900px) {
+  .inleiding__tekst {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: 4rem;
+    align-items: start;
+  }
+  /* De eerste alinea beslaat de hele linkerkolom; de overspanning is ruim
+     genomen zodat het ook klopt als er rechts alinea's bij komen. Lege
+     rijen hebben geen hoogte. */
+  .inleiding__tekst > p:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 12;
+    margin-bottom: 0;
+  }
+  .inleiding__tekst > p:not(:first-child) {
+    grid-column: 2;
+  }
+  /* Staat er maar één alinea, dan loopt die over beide kolommen, met een
+     leesbare regellengte, in plaats van een lege kolom ernaast. */
+  .inleiding__tekst > p:only-child {
+    grid-column: 1 / -1;
+    max-width: 46rem;
+  }
+}
+
+/* ---------- dienstentegels ---------- */
+
+.tegels {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 900px) {
+  .tegels {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+  .tegels > .tegel:first-child {
+    grid-row: 1 / 3;
+  }
+}
+
+/* .prose geeft links een kleur en een streep; een tegel is als geheel een
+   link en moet er als vlak uitzien, niet als onderstreepte tekst. */
+.prose a.tegel,
+.tegel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 1.8rem;
+  text-decoration: none;
+  font-weight: 400;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.prose a.tegel:hover,
+.prose a.tegel:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -22px rgba(var(--color-neutral-950), 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prose a.tegel { transition: none; }
+  .prose a.tegel:hover { transform: none; }
+}
+
+.prose .tegel > .tegel__titel {
+  position: relative;
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.tegel__tekst,
+.tegel__tekst > p {
+  position: relative;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.tegel__meer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* Licht: klei */
+.prose a.tegel--klei {
+  background: var(--zand-licht);
+  color: rgb(var(--color-neutral-700));
+}
+.prose .tegel--klei > .tegel__titel {
+  color: var(--groen-donker);
+}
+
+/* Donker: het donkergroen uit het logo */
+.prose a.tegel--groen {
+  background: var(--groen-donker);
+  color: rgb(var(--color-neutral));
+}
+.prose .tegel--groen > .tegel__titel {
+  color: rgb(var(--color-primary-200));
+}
+
+/* Foto met sluier; de tekst staat onderin op het donkere deel */
+.prose a.tegel--foto {
+  min-height: 21rem;
+  background: rgb(var(--color-primary-900));
+  color: rgb(var(--color-neutral));
+}
+.prose .tegel--foto > .tegel__titel {
+  color: #fff;
+}
+.prose .tegel > img.tegel__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  object-fit: cover;
+}
+.tegel--foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(12, 37, 19, 0.05) 0%, rgba(12, 37, 19, 0.7) 52%, rgba(12, 37, 19, 0.94) 100%);
+}
+/* De tekst moet boven de sluier liggen, de foto eronder */
+.tegel--foto > .tegel__titel,
+.tegel--foto > .tegel__tekst,
+.tegel--foto > .tegel__meer {
+  z-index: 1;
+}
+
+/* ---------- punten: vier naast elkaar op brede schermen ---------- */
+
+@media (min-width: 1100px) {
+  .punten--4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 2.5rem;
+  }
+}
+
+/* ---------- tegels: extra stijlen ---------- */
+
+/* Wit met rand */
+.prose a.tegel--wit {
+  background: #fff;
+  border: 1px solid var(--rand);
+  color: rgb(var(--color-neutral-700));
+}
+.prose .tegel--wit > .tegel__titel {
+  color: var(--groen-donker);
+}
+
+/* Stil: stippelrand, voor een onderwerp dat minder nadruk moet krijgen */
+.prose a.tegel--stil {
+  background: transparent;
+  border: 1.5px dashed var(--rand);
+  color: rgb(var(--color-neutral-600));
+}
+.prose .tegel--stil > .tegel__titel {
+  color: rgb(var(--color-neutral-600));
+}
+
+/* ---------- tegels als overzicht (Werkvelden) ---------- */
+
+/* Drie gelijke kolommen in plaats van één grote tegel met twee kleine.
+   De regels van het gewone rooster hierboven gelden vanaf 900 px; de
+   selectors hieronder wegen zwaarder en zetten ze voor het overzicht uit. */
+.tegels.tegels--overzicht {
+  grid-template-columns: 1fr;
+  grid-template-rows: none;
+  gap: 1.1rem;
+  margin-top: 2.5rem;
+}
+
+.tegels.tegels--overzicht > .tegel:first-child {
+  grid-row: auto;
+}
+
+@media (min-width: 700px) {
+  .tegels.tegels--overzicht {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .tegels.tegels--overzicht {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: minmax(11.5rem, auto);
+  }
+  .tegels.tegels--overzicht > .tegel--breed {
+    grid-column: span 2;
+  }
+}
+
+.prose .tegels--overzicht a.tegel {
+  padding: 1.6rem;
+}
+
+.prose .tegels--overzicht a.tegel--foto {
+  min-height: 14rem;
+}
+
+.prose .tegels--overzicht .tegel > .tegel__titel {
+  font-size: 1.2rem;
+}
+
+/* ---------- deel: kop links, tekst rechts ---------- */
+
+.deel {
+  display: grid;
+  gap: 0.6rem;
+  padding-block: 2.2rem;
+  border-top: 1px solid var(--rand);
+  /* Een tegel springt naar dit blok; zonder deze marge schuift de kop
+     onder de vaste menubalk. */
+  scroll-margin-top: calc(var(--menu-hoogte) + 0.5rem);
+}
+
+.tegels--overzicht + .deel {
+  margin-top: 4.5rem;
+}
+
+@media (min-width: 900px) {
+  .deel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 3rem;
+  }
+}
+
+.prose .deel > .deel__kop {
+  margin: 0;
+  font-size: 1.45rem;
+}
+
+.deel__tekst > :first-child {
+  margin-top: 0;
+}
+
+.deel__tekst > :last-child {
+  margin-bottom: 0;
+}
+
+.deel__tekst > .knop {
+  margin-top: 1.25rem;
+}
+
+/* Rustig springen naar een onderwerp, behalve als de bezoeker minder
+   beweging wil. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* ---------- kopband: lichtere sluier ---------- */
+
+/* De foto in de kopband blijft nu helder, net als de heldfoto op de
+   homepage. Helemaal zonder verdonkering kan niet: witte tekst op licht
+   riet of gras is onleesbaar. Daarom alleen nog donker waar tekst staat:
+   links achter de titel en bovenin achter het menu. De rechterhelft, waar
+   het onderwerp van de foto staat, blijft vrij.
+   Deze regels staan na de oorspronkelijke en winnen daarom; de oude
+   sluier hierboven is ongewijzigd, zodat terugdraaien dit blok weghalen is. */
+.paginakop__sluier {
+  background:
+    linear-gradient(90deg, rgba(12, 37, 19, 0.66) 0%, rgba(12, 37, 19, 0.46) 30%, rgba(12, 37, 19, 0) 62%),
+    linear-gradient(to bottom, rgba(12, 37, 19, 0.5) 0%, rgba(12, 37, 19, 0) 46%);
+}
+
+/* Een zachte schaduw achter de letters vangt lichte plekken in de foto op. */
+.paginakop--foto .paginakop__titel,
+.paginakop--foto .paginakop__regel {
+  text-shadow: 0 1px 14px rgba(12, 37, 19, 0.6);
+}
+
+/* Op smalle schermen loopt de tekst over de volle breedte; daar loopt de
+   verdonkering door tot rechts, maar blijft hij lichter dan voorheen. */
+@media (max-width: 767px) {
+  .paginakop__sluier {
+    background:
+      linear-gradient(90deg, rgba(12, 37, 19, 0.7) 0%, rgba(12, 37, 19, 0.52) 60%, rgba(12, 37, 19, 0.3) 100%),
+      linear-gradient(to bottom, rgba(12, 37, 19, 0.45) 0%, rgba(12, 37, 19, 0) 46%);
+  }
+}
+
+/* Het menu ligt over de foto. Nu de sluier lichter is, kan een menulink
+   boven een licht of druk deel van de foto komen (de vlinder op Over).
+   Dezelfde zachte schaduw als achter de titel houdt hem leesbaar. Zodra
+   de balk bij scrollen zijn eigen donkergroene achtergrond krijgt, is de
+   schaduw niet meer nodig. */
+body > header:not(.is-geplakt) a {
+  text-shadow: 0 1px 10px rgba(12, 37, 19, 0.75);
+}

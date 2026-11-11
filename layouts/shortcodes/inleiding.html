@@ -1,0 +1,16 @@
+{{- /*
+  Inleiding: de kop over de volle breedte, de tekst eronder in twee
+  kolommen. De eerste alinea komt links en iets groter, de rest rechts.
+  Op smalle schermen staat alles onder elkaar. De titel mag weg; dan
+  begint de inleiding meteen met de tekst.
+
+    {{< inleiding titel="Wat ik voor u kan doen" >}}
+    Tekst in gewone markdown...
+    {{< /inleiding >}}
+*/ -}}
+<div class="inleiding">
+  {{ with .Get "titel" }}<h2 class="inleiding__kop">{{ . }}</h2>{{ end }}
+  {{- /* RenderString met display "block" en niet markdownify: die laatste
+       laat bij één enkele alinea de <p> weg, en dan werkt de opmaak niet. */}}
+  <div class="inleiding__tekst">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</div>

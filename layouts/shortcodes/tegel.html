@@ -1,0 +1,42 @@
+{{- /*
+  Eén tegel binnen {{< tegels >}}. Zie tegels.html.
+
+  stijl:     "foto" (foto met donkere sluier), "klei" (licht), "wit" (wit met
+             rand), "groen" (donker) of "stil" (stippelrand, voor iets wat
+             minder nadruk moet krijgen)
+  foto:      alleen bij stijl="foto"; pad binnen assets/, bijv. "img/tegel-meidoorn.jpg"
+  link:      waar de hele tegel naartoe linkt: een pagina ("/voortoets/") of
+             een kop op dezelfde pagina ("#quickscan")
+  linktekst: optioneel regeltje met pijl onderaan de tegel
+  pijl:      "neer" voor een pijl naar beneden (bij een link naar een kop
+             verderop); anders wijst hij naar rechts
+  breed:     "ja" laat de tegel in een overzicht twee kolommen beslaan
+*/ -}}
+{{- $stijl := .Get "stijl" | default "klei" -}}
+{{- $link := .Get "link" -}}
+{{- $href := "" -}}
+{{- with $link -}}
+  {{- if hasPrefix . "#" }}{{ $href = . }}{{ else }}{{ $href = strings.TrimPrefix "/" . | relURL }}{{ end -}}
+{{- end -}}
+{{- $foto := "" -}}
+{{- with .Get "foto" }}{{ $foto = resources.Get . }}{{ end -}}
+<a class="tegel tegel--{{ $stijl }}{{ if eq (.Get "breed") "ja" }} tegel--breed{{ end }}"{{ with $href }} href="{{ . }}"{{ end }}>
+  {{- with $foto }}
+    {{- $klein := .Resize "900x q78 webp" }}
+    {{- $groot := .Resize "1800x q80 webp" }}
+    <img class="tegel__foto" src="{{ $groot.RelPermalink }}"
+         srcset="{{ $klein.RelPermalink }} 900w, {{ $groot.RelPermalink }} 1800w" sizes="(min-width: 900px) 55vw, 100vw"
+         width="{{ $groot.Width }}" height="{{ $groot.Height }}" alt="" loading="lazy" decoding="async">
+  {{- end }}
+  <h3 class="tegel__titel">{{ .Get "titel" }}</h3>
+  <div class="tegel__tekst">{{ .Inner | markdownify }}</div>
+  {{- with .Get "linktekst" }}
+    <span class="tegel__meer">{{ . }}
+      {{ if eq ($.Get "pijl") "neer" -}}
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
+      {{- else -}}
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      {{- end }}
+    </span>
+  {{- end }}
+</a>

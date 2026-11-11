@@ -27,6 +27,9 @@ cijfers:
     label: "jaar werkervaring"
 ---
 
+{{< cijfers stijl="kaart" >}}
+
+{{< inleiding titel="Wat ik voor u kan doen" >}}
 De Interim Ecoloog biedt diverse diensten aan. U kunt bij mij terecht voor een quickscan, een nader ecologisch onderzoek, ecologische begeleiding van uw werkzaamheden of het uitvoeren van een ecologische voortoets stikstof. Daarnaast kunnen ook inventarisaties worden gedaan van invasieve exoten zoals Japanse duizendknoop, Reuzenberenklauw of invasieve waterplanten.
 
 Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en tijdelijke vervanging van medewerkers, bijvoorbeeld bij een gemeente of Omgevingsdienst.
@@ -34,22 +37,19 @@ Daarnaast biedt De Interim Ecoloog diensten aan als interim projectleiding en ti
 De Interim Ecoloog is werkzaam door heel Nederland. 
 
 Heeft u interesse in deze diensten of heeft u een andere ecologische vraag? Neem dan gerust contact op.
+{{< /inleiding >}}
 
-## Wat ik voor u kan doen
-
-{{< kaarten >}}
-{{< kaart titel="Quickscan en nader onderzoek" >}}
-Een heldere beoordeling van beschermde soorten op uw locatie, en gericht vervolgonderzoek waar dat nodig blijkt.
-{{< /kaart >}}
-{{< kaart titel="Begeleiding en vergunningen" >}}
-Ecologische begeleiding van uw werkzaamheden en het aanvragen van de benodigde omgevingsvergunning, zodat het werk door kan gaan binnen de regels.
-{{< /kaart >}}
-{{< kaart titel="Voortoets stikstof en AERIUS" >}}
+{{< tegels >}}
+{{< tegel titel="Voortoets stikstof en AERIUS" stijl="foto" foto="img/tegel-meidoorn.jpg" link="/voortoets/" linktekst="Naar de voortoetsteller" >}}
 Stikstofberekeningen met AERIUS, maar ook een ecologische voortoets stikstof behoort tot de mogelijkheden.
-{{< /kaart >}}
-{{< /kaarten >}}
-
-{{< cijfers >}}
+{{< /tegel >}}
+{{< tegel titel="Quickscan en nader onderzoek" stijl="klei" link="/werkvelden/" >}}
+Een heldere beoordeling van beschermde soorten op uw locatie, en gericht vervolgonderzoek waar dat nodig blijkt.
+{{< /tegel >}}
+{{< tegel titel="Begeleiding en vergunningen" stijl="groen" link="/werkvelden/" >}}
+Ecologische begeleiding van uw werkzaamheden en het aanvragen van de benodigde omgevingsvergunning, zodat het werk door kan gaan binnen de regels.
+{{< /tegel >}}
+{{< /tegels >}}
 
 {{< zandband >}}
 

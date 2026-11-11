@@ -32,6 +32,9 @@
       <div class="held__inhoud">
         {{ with .label }}<span class="held__label">{{ . }}</span>{{ end }}
         <h1 class="held__kop">{{ .kop }}</h1>
+        {{/* Proef indeling C: tekst links en knoppen rechts op één regel,
+             onder de kop. Op smalle schermen vallen ze onder elkaar. */}}
+        <div class="held__onder">
         {{ with .tekst }}<p class="held__tekst">{{ . }}</p>{{ end }}
         <div class="held__knoppen">
           {{ with .knop1 }}<a class="knop knop--vol" href="{{ strings.TrimPrefix "/" .link | relURL }}">{{ .tekst }}</a>{{ end }}
@@ -41,12 +44,12 @@
             </a>
           {{ end }}
         </div>
+        </div>
       </div>
 
-      {{/* Golf in de paginakleur, net als op de andere pagina's */}}
-      <svg class="held__golf" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path d="M0,58 C200,14 380,10 620,38 C860,66 1080,78 1260,56 C1330,47 1390,36 1440,24 L1440,90 L0,90 Z" />
-      </svg>
+      {{/* Proef indeling C: geen golf onder de heldfoto. De cijferkaart
+           valt hier over de onderrand van de foto heen (zie de shortcode
+           cijfers met stijl="kaart" in content/_index.md). */}}
     </section>
   {{ end }}
 

@@ -1,0 +1,23 @@
+{{- /*
+  Rooster met tegels. Gebruik met de shortcode `tegel`.
+
+  Zonder stijl: links één grote tegel (de eerste), rechts twee kleinere
+  boven elkaar. Zo staat het op de homepage.
+
+    {{< tegels >}}
+    {{< tegel titel="..." stijl="foto" foto="img/tegel-meidoorn.jpg" link="/voortoets/" linktekst="..." >}}Tekst{{< /tegel >}}
+    {{< tegel titel="..." stijl="klei" link="/werkvelden/" >}}Tekst{{< /tegel >}}
+    {{< tegel titel="..." stijl="groen" link="/werkvelden/" >}}Tekst{{< /tegel >}}
+    {{< /tegels >}}
+
+  Met stijl="overzicht": drie gelijke kolommen, voor een overzicht van
+  veel onderwerpen (zoals op Werkvelden). Een tegel met breed="ja" beslaat
+  twee kolommen.
+
+    {{< tegels stijl="overzicht" >}}
+    ...
+    {{< /tegels >}}
+*/ -}}
+<div class="tegels{{ with .Get "stijl" }} tegels--{{ . }}{{ end }}">
+  {{ .Inner }}
+</div>

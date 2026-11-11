@@ -1,0 +1,32 @@
+{{- /*
+  Eén onderwerp op een pagina met veel onderwerpen (zoals Werkvelden):
+  links de kop, rechts de tekst, met een lijn erboven. Op smalle schermen
+  staat de kop boven de tekst.
+
+    {{< deel titel="Quickscan" >}}
+    Tekst in gewone markdown...
+    {{< /deel >}}
+
+  De kop krijgt hetzelfde anker als een gewone markdown-kop zou krijgen
+  ("Ecologische begeleiding" wordt #ecologische-begeleiding), dus links
+  naar /werkvelden/#quickscan blijven werken en een tegel kan ernaar
+  verwijzen met link="#quickscan".
+
+  Optioneel een knop onder de tekst:
+
+    {{< deel titel="..." knop="Naar de voortoetsteller" link="/voortoets/" >}}
+*/ -}}
+{{- $titel := .Get "titel" -}}
+<section class="deel" id="{{ $titel | anchorize }}">
+  <h2 class="deel__kop">{{ $titel }}</h2>
+  <div class="deel__tekst">
+    {{ .Inner | markdownify }}
+    {{- with .Get "knop" }}
+    {{- /* not-prose: anders geeft het thema de knop bij aanwijzen de
+           opmaak van een gewone tekstlink (hoekig, andere kleur). */}}
+    <a class="knop knop--vol not-prose" href="{{ strings.TrimPrefix "/" ($.Get "link") | relURL }}">{{ . }}
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+    {{- end }}
+  </div>
+</section>

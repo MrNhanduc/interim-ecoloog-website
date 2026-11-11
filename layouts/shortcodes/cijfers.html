@@ -6,9 +6,15 @@
       {{< cijfers >}}
 
   Zo kun je hem verplaatsen zonder een template aan te raken.
+
+  Met stijl="kaart" wordt het een witte kaart die over de onderrand van
+  de heldfoto valt. Zet hem dan als eerste in de content:
+
+      {{< cijfers stijl="kaart" >}}
 */ -}}
+{{ $stijl := .Get "stijl" }}
 {{ with .Page.Params.cijfers }}
-  <section class="cijfers" aria-label="De Interim Ecoloog in cijfers">
+  <section class="cijfers{{ with $stijl }} cijfers--{{ . }}{{ end }}" aria-label="De Interim Ecoloog in cijfers">
     {{ range . }}
       <div class="cijfer">
         <span class="cijfer__getal">{{ .getal }}</span>
