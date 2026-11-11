@@ -139,7 +139,9 @@ header nav .active {
 
 .contact-form input,
 .contact-form textarea {
-  background: var(--zand-licht);
+  /* Eén tint lichter dan --zand-licht: op de witte formulierkaart oogt de
+     gewone kleitint te zwaar voor een invoerveld. */
+  background: rgb(var(--color-secondary-50));
   border: 1.5px solid var(--rand);
   border-radius: 10px;
   padding: 12px 14px;
@@ -406,7 +408,7 @@ body {
   align-self: flex-start;
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  background: rgba(250, 247, 239, 0.16);
+  background: rgba(246, 243, 239, 0.16);
   color: rgb(var(--color-secondary-200));
   font-size: 0.78rem;
   font-weight: 600;
@@ -428,7 +430,7 @@ body {
 
 .held__tekst {
   margin: 0;
-  color: rgba(250, 247, 239, 0.92);
+  color: rgba(246, 243, 239, 0.92);
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   line-height: 1.55;
   max-width: 32rem;
@@ -476,12 +478,12 @@ body {
 }
 
 .knop--lijn {
-  border: 1.5px solid rgba(250, 247, 239, 0.6);
+  border: 1.5px solid rgba(246, 243, 239, 0.6);
   color: rgb(var(--color-neutral));
 }
 
 .knop--lijn:hover {
-  background: rgba(250, 247, 239, 0.14);
+  background: rgba(246, 243, 239, 0.14);
   color: #fff;
 }
 
@@ -919,7 +921,7 @@ body > header > nav,
 
 .paginakop__regel {
   margin: 0;
-  color: rgba(250, 247, 239, 0.9);
+  color: rgba(246, 243, 239, 0.9);
   font-size: clamp(1rem, 1.5vw, 1.15rem);
   max-width: 40rem;
 }

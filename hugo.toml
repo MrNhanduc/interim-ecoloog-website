@@ -38,7 +38,7 @@ disableLanguages = ["en"]
   colorScheme = "custom"          # assets/css/schemes/custom.css
   defaultAppearance = "light"     # site start in lichte modus
   autoSwitchAppearance = false    # geen automatische donkere modus
-  defaultThemeColor = "#FAF7EF"   # crème, kleurt de browserbalk op mobiel
+  defaultThemeColor = "#F6F3EF"   # paginakleur, kleurt de browserbalk op mobiel
 
   # ------------------------------------------------------------------
   # ZOEKMACHINES — de site staat open voor Google.

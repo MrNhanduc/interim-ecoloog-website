@@ -1,21 +1,24 @@
-/* De Interim Ecoloog — kleurenschema afgeleid uit het logo
+/* De Interim Ecoloog — kleurenschema "Rivierklei"
    groen  #1D5129 / #4CA162 / #64BD78   |  accent donkerrood #A32B0D
-   achtergrond crème #FAF7EF, steunkleur zand (secondary)
+   achtergrond #F6F3EF, steunkleur klei: een koel grijsbruin (secondary)
+   De groentinten en het rood komen uit het logo en zijn ongewijzigd; alleen
+   de zandtinten zijn vervangen door klei. De namen --zand en --zand-licht
+   in assets/css/custom.css zijn blijven staan, maar verwijzen nu naar klei.
    Congo verwacht RGB-waarden zonder rgb() — nodig voor Tailwind-transparantie. */
 :root {
-  --color-neutral: 250, 247, 239; /* paginakleur: crème i.p.v. wit */
-  /* Warm zandgrijs — draagt de tekst en randen */
-  --color-neutral-50: 247, 243, 233;
-  --color-neutral-100: 240, 234, 219;
-  --color-neutral-200: 227, 218, 198;
-  --color-neutral-300: 207, 195, 169;
-  --color-neutral-400: 168, 156, 134;
-  --color-neutral-500: 133, 123, 105;
-  --color-neutral-600: 107, 97, 84;
-  --color-neutral-700: 84, 76, 66;
-  --color-neutral-800: 58, 52, 44;
-  --color-neutral-900: 36, 32, 27;
-  --color-neutral-950: 20, 18, 15;
+  --color-neutral: 246, 243, 239; /* paginakleur: gebroken wit met een vleug klei */
+  /* Kleigrijs — draagt de tekst en randen */
+  --color-neutral-50: 243, 239, 234;
+  --color-neutral-100: 234, 229, 222;
+  --color-neutral-200: 219, 212, 203;
+  --color-neutral-300: 197, 188, 177;
+  --color-neutral-400: 160, 151, 141;
+  --color-neutral-500: 126, 117, 108;
+  --color-neutral-600: 100, 92, 84;
+  --color-neutral-700: 79, 72, 65;
+  --color-neutral-800: 54, 49, 44;
+  --color-neutral-900: 38, 33, 29;
+  --color-neutral-950: 20, 18, 16;
   /* Groen uit het logo */
   --color-primary-50: 237, 247, 240;
   --color-primary-100: 210, 237, 217;
@@ -28,18 +31,18 @@
   --color-primary-800: 29, 81, 41;
   --color-primary-900: 23, 63, 33;
   --color-primary-950: 12, 37, 19;
-  /* Zand — steunkleur voor secties en accenten */
-  --color-secondary-50: 251, 246, 236;
-  --color-secondary-100: 245, 235, 216;
-  --color-secondary-200: 235, 220, 188;
-  --color-secondary-300: 223, 201, 155;
-  --color-secondary-400: 206, 175, 115;
-  --color-secondary-500: 188, 149, 83;
-  --color-secondary-600: 166, 124, 65;
-  --color-secondary-700: 134, 98, 55;
-  --color-secondary-800: 106, 78, 49;
-  --color-secondary-900: 86, 64, 42;
-  --color-secondary-950: 47, 34, 22;
+  /* Klei — steunkleur voor secties en accenten */
+  --color-secondary-50: 245, 241, 236;
+  --color-secondary-100: 236, 229, 221;
+  --color-secondary-200: 220, 210, 199;
+  --color-secondary-300: 201, 188, 174;
+  --color-secondary-400: 176, 160, 144;
+  --color-secondary-500: 150, 133, 116;
+  --color-secondary-600: 125, 108, 93;
+  --color-secondary-700: 101, 87, 75;
+  --color-secondary-800: 80, 69, 60;
+  --color-secondary-900: 64, 55, 48;
+  --color-secondary-950: 36, 31, 27;
   /* Merkaccent uit het logo (stip op de i, oog van de vogel) */
   --color-brand-red: 163, 43, 13;
 }
